@@ -17,14 +17,15 @@ public class Util {
 			String nomeArquivo = imagem.getOriginalFilename();
 			try {
 				// Criando o diret�rio para armazenar o arquivo
-				String workspaceProjeto = "C:/Users/Edmarcos/git/UEVENTS/eclipse-workspace/uevents";
+										//Alterar aqui quando for cadastrar imagens
+				String workspaceProjeto = "C:/Users/Edmarcos/Desktop/uevents";
 				File dir = new File(workspaceProjeto + "/WebContent/view/img/eventos");
 				if (!dir.exists()) {
 					dir.mkdirs();
 				}
 
 				// Criando o arquivo no diret�rio
-				File serverFile = new File((dir.getAbsolutePath() + File.separator + geraSalt() + " - " + nomeArquivo));
+				File serverFile = new File((dir.getAbsolutePath() + File.separator + geraSalt() + "-" + nomeArquivo));
 				BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
 				stream.write(imagem.getBytes());
 				stream.close();
