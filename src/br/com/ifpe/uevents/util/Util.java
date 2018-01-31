@@ -18,7 +18,7 @@ public class Util {
 			try {
 				// Criando o diret�rio para armazenar o arquivo
 										//Alterar aqui quando for cadastrar imagens
-				String workspaceProjeto = "C:/Users/Edmarcos/Desktop/uevents";
+				String workspaceProjeto = "C:/Users/Edmarcos/workspace/uevents";
 				File dir = new File(workspaceProjeto + "/WebContent/view/img/eventos");
 				if (!dir.exists()) {
 					dir.mkdirs();
