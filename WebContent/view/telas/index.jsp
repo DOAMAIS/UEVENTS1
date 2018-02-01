@@ -8,6 +8,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Uvents</title>
 	<c:import url="/view/link.jsp" />
+	<c:import url="../comum/navbar.jsp" />
+	
+	
 </head>
 
 <body>
