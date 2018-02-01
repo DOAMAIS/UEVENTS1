@@ -14,7 +14,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85 p-b-20">
-				<form class="login100-form validate-form">
+				<form action="efetuaLogin" class="login100-form validate-form">
 					<span class="login100-form-title p-b-70">
 						UVENTS	
 					</span>
