@@ -15,12 +15,16 @@ public class UsuarioController {
         public String exibirLogin(){ 
 		return "index.jsp";
 	}
-	@RequestMapping("efetuaLogin")
+	/*@RequestMapping("efetuaLogin")
 	public String efetuaLogin(Usuario usuario, HttpSession session) {
 	if(new UsuarioDao().login(usuario)) {
 	session.setAttribute("usuarioLogado", usuario);
 	return "index.jsp";
 	}
 	return "redirect:";
+	}*/
+	@RequestMapping("exibirCadastro")
+		public String exibirCadastro(){
+		return "telas/cadasUsuario";
 	}
 }
