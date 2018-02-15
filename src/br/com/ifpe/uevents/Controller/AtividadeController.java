@@ -32,4 +32,10 @@ public class AtividadeController {
 		
 		return "forward:cadasAtividade";
 	}
+	@RequestMapping("inicialAtividade")
+	public String visualizar(){
+	
+		System.out.println("visualizar");
+		return "telas/inicialAtividade";
+	}
 }
