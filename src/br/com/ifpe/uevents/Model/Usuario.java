@@ -1,5 +1,7 @@
 package br.com.ifpe.uevents.Model;
 
+import java.util.List;
+
 public class Usuario {
      private int id;
      private String  cpf;
@@ -8,6 +10,7 @@ public class Usuario {
      private String  nome;
      private String  senha;
      private int  idTipoUsuario;
+     private List<Atividade> atividades;
      
 	public int getIdTipoUsuario() {
 		return idTipoUsuario;
@@ -51,4 +54,12 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	public List<Atividade> getAtividades() {
+		return atividades;
+	}
+	public void setAtividades(List<Atividade> atividades) {
+		this.atividades = atividades;
+	}
+	
+	
 }
