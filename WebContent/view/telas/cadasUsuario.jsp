@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>UEVENTS</title>
-<c:import url="/view/link.jsp" />
+<c:import url="/view/linkcss.jsp" />
 <c:import url="../comum/navbar.jsp" />
 
 </head>
@@ -67,6 +67,9 @@
 			</div>
 		</div>
 	</div>
+		<div id="dropDownSelect1"></div>
+<c:import url="/view/linkjs.jsp" />
+	
 
 </body>
-</html>
+</html>	
