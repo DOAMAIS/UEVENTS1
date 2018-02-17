@@ -1,24 +1,44 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <c:import url="/view/link.jsp" />
-	<c:import url="../comum/navbar.jsp" />
-	
+   
+	<c:import url="/view/linkcss.jsp" />
+    <c:import url="../comum/navbar.jsp" />
+    <c:import url="../css/css_tablebutton.jsp" />
+
+	  <script type="text/javascript">
+      function Mudarestado(Atividades, Eventos) {
+        var display = document.getElementById(Atividades).style.display;
+        if(display == "none"){
+            document.getElementById(Atividades).style.display = 'block';
+             document.getElementById(Eventos).style.display= 'none';
+        }else{
+            document.getElementById(Atividades).style.display = 'none';
+           document.getElementById(Eventos).style.display = 'block';
+        }
+    }
+
+
+   
+  </script> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-
   <div class="limiter">
      <div class="container-login100">
         <div class="wrap-login100 p-t-85 p-b-20">
             <span class="login100-form-title p-b-70">
                   Bem vindo Nome do usuario!
             </span>
-            <a href="inicialAtividade" class="button">Minhas atividades</a>          
+           <button class="button button1" onclick="Mudarestado('Eventos', 'Atividades')">Evento</button> 
+           <button class="button button1" onclick="Mudarestado('Eventos','Atividades')">Minhas atividades</button>
+           <div  id="Eventos" style="display: block;">
               <c:forEach var="evento" items="${listaEventos}">
                   <div id="eventdi">
                   <div id="eventdiv">
@@ -44,13 +64,13 @@
                                 <th></th>
                             </tr>
                         </thead>
-     <c:forEach var="atividade" items="${listaAtividades}">
+                        <c:forEach var="atividade" items="${listaAtividades}">
                             <c:if test="${evento.id == atividade.id_evento }">
                                 <tr>
                                     <td>${atividade.nome}</td>
                                     <td><fmt:formatDate value="${atividade.data}" pattern="dd/MM/yyyy"/></td>
                                     <td>${atividade.horaInicio}</td>
-                                    <td><button class="buttona">Participar</button>
+                                    <td><button class="buttona button1">Participar</button>
                                 </tr>
                             </c:if>
                         </c:forEach>
@@ -59,6 +79,29 @@
                   <br/>
             </c:forEach>
             </div>
-           
+            <div id="Atividades" style="display: none;">
+             <table class="table table-striped custab">
+                        <thead>
+                            <tr>
+                                <th>Atividades</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <c:forEach var="atividade" items="${listaAtividades}">
+                            <c:if test="${evento.id == atividade.id_evento }">
+                                <tr>
+                                    <td>${atividade.nome}</td>
+                                    <td><button class="buttonb button1">Cancelar</button></td>
+                                </tr>
+                            </c:if>
+                        </c:forEach>
+                  </table>
+         </div>
         </div>
     </div>
+ </div>
+
+    <div id="dropDownSelect1"></div>
+    </body>
+    </html>
+   
