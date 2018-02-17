@@ -48,8 +48,12 @@ public class EventoController {
 		return "telas/visualizarEvento";
 	}
 	@RequestMapping("inicialEvento")
-	public String visualizar(){
-	
+	public String visualizara(Model model){
+		EventoDao dao = new EventoDao();
+		List<Evento> listaEventos = dao.listar();
+		model.addAttribute("listaEventos", listaEventos);
+		List<Atividade> listaAtividades = new AtividadeDao().listar();
+		model.addAttribute("listaAtividades", listaAtividades);
 		System.out.println("visualizar");
 		return "telas/inicialEvento";
 	}
