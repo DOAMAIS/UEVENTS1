@@ -23,7 +23,8 @@ public class UsuarioDao {
 	}
 	public void login(Usuario usuario){
 		PreparedStatement stmt;
-		String sql = "SELECT * FROM usuario WHERE cpf = ? OR matricula = ? AND senha = ?";	
+		String sql = "SELECT * FROM usuario WHERE cpf = ? OR matricula = ? AND senha = ?";
+		
 		try{
 			stmt = connection.prepareStatement(sql);
 			stmt.setString(1, usuario.getMatricula());
@@ -52,6 +53,41 @@ public class UsuarioDao {
 		}catch(SQLException e){
 			throw new RuntimeException(e);
 		}
+	}
+	
+	public Usuario buscar(Usuario usuario){
+		
+		ResultSet rs;
+		PreparedStatement stmt;
+		String sql = "SELECT * FROM usuario where id=?";
+		Usuario usuario1 = new Usuario();
+		try{
+			stmt = connection.prepareStatement(sql);
+			stmt.setInt(1, usuario.getId());
+			
+			rs = stmt.executeQuery();
+			
+			while(rs.next()){
+				
+				
+				usuario1.setId(rs.getInt("id"));
+				usuario1.setNome(rs.getString("nome"));
+				usuario1.setCpf(rs.getString("cpf"));
+				usuario1.setEmail(rs.getString("preco_venda"));
+				usuario1.setSenha(rs.getString("senha"));
+				usuario1.setId(rs.getInt("id"));
+				usuario1.setIdTipoUsuario(rs.getInt("id_tipo_usuario"));
+				
+			}
+			
+			rs.close();
+			connection.close();
+			stmt.close();
+		}catch(SQLException e){
+			throw new RuntimeException(e);
+		}
+		
+		return usuario1;
 	}
 	
 public List<Atividade> listar(Usuario usuario){
