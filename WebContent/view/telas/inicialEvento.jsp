@@ -34,7 +34,9 @@
      <div class="container-login100">
         <div class="wrap-login100 p-t-85 p-b-20">
             <span class="login100-form-title p-b-70">
-                  Bem vindo Nome do usuario!
+                <p>
+           Bem vindo, ${usuarioLogado.nome}
+                </p>
             </span>
            <button class="button button1" onclick="Mudarestado('Eventos', 'Atividades')">Evento</button> 
            <button class="button button1" onclick="Mudarestado('Eventos','Atividades')">Minhas atividades</button>

@@ -55,40 +55,42 @@ public class UsuarioDao {
 		}
 	}
 	
-	public Usuario buscar(Usuario usuario){
+	public Usuario buscarUsuario(Usuario usuario){
 		
-		ResultSet rs;
-		PreparedStatement stmt;
-		String sql = "SELECT * FROM usuario where id=?";
-		Usuario usuario1 = new Usuario();
 		try{
-			stmt = connection.prepareStatement(sql);
-			stmt.setInt(1, usuario.getId());
+			Usuario usuarioConsultado = null;
+			PreparedStatement stmt = this.connection.prepareStatement("select * from usuario where cpf = ? and senha = ? ");
+			stmt.setString(1, usuario.getCpf());
+			stmt.setString(2, usuario.getSenha());
+			ResultSet rs = stmt.executeQuery();
 			
-			rs = stmt.executeQuery();
-			
-			while(rs.next()){
-				
-				
-				usuario1.setId(rs.getInt("id"));
-				usuario1.setNome(rs.getString("nome"));
-				usuario1.setCpf(rs.getString("cpf"));
-				usuario1.setEmail(rs.getString("preco_venda"));
-				usuario1.setSenha(rs.getString("senha"));
-				usuario1.setId(rs.getInt("id"));
-				usuario1.setIdTipoUsuario(rs.getInt("id_tipo_usuario"));
-				
-			}
+			if (rs.next()) {
+				usuarioConsultado = montarObjeto(rs);
+				}
 			
 			rs.close();
 			connection.close();
 			stmt.close();
+			return usuarioConsultado;
 		}catch(SQLException e){
 			throw new RuntimeException(e);
 		}
 		
-		return usuario1;
 	}
+	private Usuario montarObjeto(ResultSet rs) throws SQLException {
+		
+		 Usuario usuario = new Usuario();
+		 usuario.setId(rs.getInt("id"));
+		 usuario.setNome(rs.getString("nome"));
+		 usuario.setMatricula(rs.getString("matricula"));
+		 usuario.setCpf(rs.getString("cpf"));
+		 usuario.setEmail(rs.getString("email"));
+		 usuario.setSenha(rs.getString("senha"));
+		 usuario.setIdTipoUsuario(rs.getInt("id_tipo_usuario"));
+		 
+		 return usuario;
+				 
+	 }
 	
 public List<Atividade> listar(Usuario usuario){
 		
