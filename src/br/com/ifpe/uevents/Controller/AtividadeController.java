@@ -25,10 +25,10 @@ public class AtividadeController {
 		return "telas/cadasAtividade";
 	}
 	@RequestMapping("inserirAtividade")
-	public String cadastroEvento(Atividade evento){
+	public String cadastroEvento(Atividade atv){
 
 		AtividadeDao dao = new AtividadeDao();
-		dao.cadastrar(evento);
+		dao.cadastrar(atv);
 		
 		return "forward:cadasAtividade";
 	}
