@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	
 	
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -20,14 +20,19 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85 p-b-20">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" action="inserirUsuario" method="post">
 					<span class="login100-form-title p-b-70">
 						UEVENTS
 					</span>
 					
 					<div class="wrap-input100 validate-input m-b-35" data-validate = "Enter matriculation">
-						<input class="input100" type="text" name="matriculation">
-						<span class="focus-input100" data-placeholder="Matrícula"></span>
+						<input class="input100" type="text" name="nome">
+						<span class="focus-input100" data-placeholder="Nome"></span>
+					</div>
+					
+					<div class="wrap-input100 validate-input m-b-35" data-validate = "Enter matriculation">
+						<input class="input100" type="text" name="cpf">
+						<span class="focus-input100" data-placeholder="CPF"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-35" data-validate = "Enter email">
@@ -36,19 +41,19 @@
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-35" data-validate="Enter password">
-						<input class="input100" type="password" name="pass">
+						<input class="input100" type="password" name="senha">
 						<span class="focus-input100" data-placeholder="Senha"></span>
 					</div>
-					<select class="form-control">
+					<select class="wrap-input100 validate-input m-b-35" name="idTipoUsuario">
 						<option>Selecione o tipo de usuário...</option>
-						<option value="1">Aluno</option>
-						<option value="2">Convidado</option>
+						<option value="1">Convidado</option>
+						<option value="2">Aluno</option>
 						<option value="3">Professor</option>
 					</select>
 					<br>
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
-							Login
+							Cadastrar
 						</button>
 					</div>
 
@@ -58,7 +63,7 @@
 								Já tem conta?
 							</span>
 
-							<a href="/index.jsp" class="txt2">
+							<a href="/" class="txt2">
 								Clique aqui!
 							</a>
 						</li>
@@ -72,4 +77,4 @@
 	
 
 </body>
-</html>	
+</html>
