@@ -20,11 +20,12 @@ USE `uvents` ;
 -- -----------------------------------------------------
 -- Table `uvents`.`eventos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `uvents`.`eventos` (
-  `id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `uvents`.`evento` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `foto_evento` VARCHAR(300) NULL,
   `nome_evento` VARCHAR(300) NOT NULL,
-  `data_evento` DATE NOT NULL,
+  `data_inicio` DATE NOT NULL,
+  `data_termino` DATE NOT NULL,
   `descricao_evento` LONGTEXT NOT NULL,
   `status` VARCHAR(7) NOT NULL,
   PRIMARY KEY (`id`))
@@ -35,12 +36,13 @@ ENGINE = InnoDB;
 -- Table `uvents`.`atividade`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `uvents`.`atividade` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `id_evento` INT NOT NULL,
   `orientador` VARCHAR(100) NOT NULL,
   `nome_atividade` VARCHAR(100) NOT NULL,
-  `hora_atividade` DATETIME NOT NULL,
   `data_atividade` DATE NOT NULL,
+  `hora_inicio` TIME NOT NULL,
+  `hora_termino` TIME NOT NULL,
   `descricao_atividade` LONGTEXT NULL,
   `observacao` LONGTEXT NULL,
   `limite` INT NOT NULL,
@@ -48,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `uvents`.`atividade` (
   INDEX `id_evento_idx` (`id_evento` ASC),
   CONSTRAINT `id_evento`
     FOREIGN KEY (`id_evento`)
-    REFERENCES `uvents`.`eventos` (`id`)
+    REFERENCES `uvents`.`evento` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -59,7 +61,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `uvents`.`tipo_usuario` (
   `id` INT NOT NULL,
-  `descricao_` VARCHAR(45) NOT NULL,
+  `descricao` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -68,12 +70,11 @@ ENGINE = InnoDB;
 -- Table `uvents`.`usuario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `uvents`.`usuario` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `cpf` VARCHAR(255) NOT NULL,
-  `matricula` VARCHAR(45) NOT NULL,
-  `email` VARCHAR(45) NOT NULL,
-  `nome` VARCHAR(45) NOT NULL,
-  `senha` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(60) NOT NULL,
+  `nome` VARCHAR(60) NOT NULL,
+  `senha` VARCHAR(60) NOT NULL,
   `id_tipo_usuario` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_usuario_tipo_usuario1_idx` (`id_tipo_usuario` ASC),
@@ -89,14 +90,14 @@ ENGINE = InnoDB;
 -- Table `uvents`.`usuario_has_atividade`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `uvents`.`usuario_has_atividade` (
-  `usuario_id` INT NOT NULL,
+  `id_usuario` INT NOT NULL,
   `id_atividade` INT NOT NULL,
   `presenca` INT NOT NULL,
-  PRIMARY KEY (`usuario_id`, `id_atividade`),
+  PRIMARY KEY (`id_usuario`, `id_atividade`),
   INDEX `fk_usuario_has_atividade_atividade1_idx` (`id_atividade` ASC),
-  INDEX `fk_usuario_has_atividade_usuario1_idx` (`usuario_id` ASC),
+  INDEX `fk_usuario_has_atividade_usuario1_idx` (`id_usuario` ASC),
   CONSTRAINT `fk_usuario_has_atividade_usuario1`
-    FOREIGN KEY (`usuario_id`)
+    FOREIGN KEY (`id_usuario`)
     REFERENCES `uvents`.`usuario` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
@@ -107,6 +108,9 @@ CREATE TABLE IF NOT EXISTS `uvents`.`usuario_has_atividade` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+INSERT INTO tipo_usuario (id, descricao) values(1, "convidado");
+INSERT INTO tipo_usuario (id, descricao) values(2, "aluno");
+INSERT INTO tipo_usuario (id, descricao) values(3, "professor");
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
