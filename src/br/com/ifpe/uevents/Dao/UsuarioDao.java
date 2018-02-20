@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.ifpe.uevents.Model.Atividade;
 import br.com.ifpe.uevents.Model.Usuario;
+import br.com.ifpe.uevents.Model.Atividade;
 import br.com.ifpe.uevents.util.ConnectionFactory;
 
 
@@ -21,40 +21,24 @@ public class UsuarioDao {
 			throw new RuntimeException(e);
 		}
 	}
-	public void login(Usuario usuario){
-		PreparedStatement stmt;
-		String sql = "SELECT * FROM usuario WHERE cpf = ? OR matricula = ? AND senha = ?";
-		
-		try{
-			stmt = connection.prepareStatement(sql);
-			stmt.setString(1, usuario.getMatricula());
-			stmt.setString(2, usuario.getCpf());
-			stmt.setString(3, usuario.getSenha());			
-			stmt.execute();
-			connection.close();
-		}catch(SQLException e){
-			throw new RuntimeException(e);
-		}
-}
 	
-	public void cadastrarUsuario(Usuario usuario){		
+	public void cadastrar(Usuario usuario){		
 		PreparedStatement stmt;
-		String sql = "INSERT INTO usuario (cpf, matricula, email, nome, senha,id_tipo_usuario) values (?,?,?,?,?,?)";
+		String sql = "INSERT INTO usuario (cpf, email, nome, senha,id_tipo_usuario) values (?,?,?,?,?)";
 		try{
 			stmt = connection.prepareStatement(sql);			
 			stmt.setString(1, usuario.getCpf());
-			stmt.setString(2, usuario.getMatricula());
-			stmt.setString(3, usuario.getEmail());
-			stmt.setString(4, usuario.getNome());
-			stmt.setString(5, usuario.getSenha());
-			stmt.setInt(6, usuario.getIdTipoUsuario());
+			stmt.setString(2, usuario.getEmail());
+			stmt.setString(3, usuario.getNome());
+			stmt.setString(4, usuario.getSenha());
+			stmt.setInt(5, usuario.getIdTipoUsuario());
 			stmt.execute();
 			connection.close();
 		}catch(SQLException e){
 			throw new RuntimeException(e);
 		}
 	}
-	
+
 	public Usuario buscarUsuario(Usuario usuario){
 		
 		try{
@@ -77,12 +61,11 @@ public class UsuarioDao {
 		}
 		
 	}
-	private Usuario montarObjeto(ResultSet rs) throws SQLException {
+	public Usuario montarObjeto(ResultSet rs) throws SQLException {
 		
 		 Usuario usuario = new Usuario();
 		 usuario.setId(rs.getInt("id"));
 		 usuario.setNome(rs.getString("nome"));
-		 usuario.setMatricula(rs.getString("matricula"));
 		 usuario.setCpf(rs.getString("cpf"));
 		 usuario.setEmail(rs.getString("email"));
 		 usuario.setSenha(rs.getString("senha"));
@@ -91,8 +74,8 @@ public class UsuarioDao {
 		 return usuario;
 				 
 	 }
-	
-public List<Atividade> listar(Usuario usuario){
+	 
+	 public List<Atividade> listarAtvs(Usuario usuario){
 		
 		List<Atividade> listaAtividades = new ArrayList<>();
 		ResultSet rs;
@@ -101,6 +84,7 @@ public List<Atividade> listar(Usuario usuario){
 		
 		try{
 			stmt = connection.prepareStatement(sql);
+			stmt.setInt(1, usuario.getId());
 			rs = stmt.executeQuery();
 			
 			while(rs.next()){
@@ -130,4 +114,41 @@ public List<Atividade> listar(Usuario usuario){
 		
 		return listaAtividades;
 	}
+
+	 public void alterar(Usuario usuario){		
+		PreparedStatement stmt;
+		String sql = "UPDATE usuario SET cpf=?, email=?, nome=?, senha=?,id_tipo_usuario=? WHERE id=?";
+		try{
+			stmt = connection.prepareStatement(sql);			
+			stmt.setString(1, usuario.getCpf());
+			stmt.setString(2, usuario.getEmail());
+			stmt.setString(3, usuario.getNome());
+			stmt.setString(4, usuario.getSenha());
+			stmt.setInt(5, usuario.getIdTipoUsuario());
+			stmt.setInt(6, usuario.getId());
+			stmt.execute();
+			connection.close();
+		}catch(SQLException e){
+			throw new RuntimeException(e);
+		}
+	}
+
+	 public void remover(Usuario usuario){
+		
+		PreparedStatement stmt;
+		String sql = "DELETE FROM usuario WHERE id=?";
+		
+		try{
+			stmt = connection.prepareStatement(sql);
+			
+			stmt.setInt(1, usuario.getId());
+	
+			
+			stmt.execute();
+			connection.close();
+		}catch(SQLException e){
+			throw new RuntimeException(e);
+		}
+	}
+
  }
