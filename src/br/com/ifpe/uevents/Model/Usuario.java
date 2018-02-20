@@ -5,7 +5,6 @@ import java.util.List;
 public class Usuario {
      private int id;
      private String  cpf;
-     private String  matricula;
      private String  email;
      private String  nome;
      private String  senha;
@@ -29,12 +28,6 @@ public class Usuario {
 	}
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
-	}
-	public String getMatricula() {
-		return matricula;
-	}
-	public void setMatricula(String matricula) {
-		this.matricula = matricula;
 	}
 	public String getEmail() {
 		return email;
