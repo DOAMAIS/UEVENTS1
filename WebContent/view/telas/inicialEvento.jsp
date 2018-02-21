@@ -1,15 +1,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
+  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
    
 	<c:import url="/view/linkcss.jsp" />
     <c:import url="../comum/navbar.jsp" />
-    <c:import url="../css/css_tablebutton.jsp" />
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    
 
 	  <script type="text/javascript">
       function Mudarestado(Atividades, Eventos) {
@@ -26,17 +27,122 @@
 
    
   </script> 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+
+    <style type="text/css"> 
+
+
+.custab{
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+    }
+.custab:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+    }
+    .button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 09px 21px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#eventdiv{
+ background-color: white;
+ border: 1px solid;
+ border-color:#4CAF50;
+}
+   .custab{
+                border: 1px solid #ccc;
+                padding: 5px;
+                margin: 5% 0;
+                box-shadow: 3px 3px 2px #ccc;
+                transition: 0.5s;
+                }
+            
+            
+            #eventdi{
+             background-color: white;
+            border-radius: 25px;
+             padding: 20px; 
+            width: 600px;
+             border: 2px solid #73AD21;
+              height: 325px; 
+             
+            }
+                
+
+            hr{
+                border-color:#4CAF50;;
+            }
+            .button {
+    background-color: #4CAF50; 
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 3px 1px;
+    cursor: pointer;
+}
+.button1 {border-radius: 12px;}
+
+.buttona {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 05px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 3px 1px;
+    cursor: pointer;
+}
+.buttonb {
+    background-color: #FF0000;
+    border: none;
+    color: white;
+    padding: 05px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 3px 1px;
+    cursor: pointer;
+}
+
+</style>
+
+  <script type="text/javascript">
+      function Mudarestado(Atividades, Eventos) {
+        var display = document.getElementById(Atividades).style.display;
+        if(display == "none"){
+            document.getElementById(Atividades).style.display = 'block';
+             document.getElementById(Eventos).style.display= 'none';
+        }else{
+            document.getElementById(Atividades).style.display = 'none';
+           document.getElementById(Eventos).style.display = 'block';
+        }
+    }
+
+
+   
+  </script>  
 </head>
 <body>
   <div class="limiter">
      <div class="container-login100">
         <div class="wrap-login100 p-t-85 p-b-20">
             <span class="login100-form-title p-b-70">
-                <p>
-           Bem vindo, ${usuarioLogado.nome}
-                </p>
+                  Bem vindo Nome do usuario!
             </span>
            <button class="button button1" onclick="Mudarestado('Eventos', 'Atividades')">Evento</button> 
            <button class="button button1" onclick="Mudarestado('Eventos','Atividades')">Minhas atividades</button>
@@ -106,4 +212,6 @@
     <div id="dropDownSelect1"></div>
     </body>
     </html>
+   
+
    
