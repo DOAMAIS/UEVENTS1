@@ -31,8 +31,8 @@ public class UsuarioController {
 		Usuario usuarioLogado = dao.buscarUsuario(usuario);
 		if (usuarioLogado != null) {
 			//usuarioLogado.setAtividades(dao.listarAtvs(usuario));
-			List<Atividade> atvsUsuarioLogado = new UsuarioDao().listarAtvs(usuarioLogado);
-			model.addAttribute("atvsUsuarioLogado", atvsUsuarioLogado);
+			//List<Atividade> atvsUsuarioLogado = new UsuarioDao().listarAtvs(usuarioLogado);
+			//model.addAttribute("atvsUsuarioLogado", atvsUsuarioLogado);
 			session.setAttribute("usuarioLogado", usuarioLogado);
 		    return "telas/inicialEvento";
 		}
