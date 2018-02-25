@@ -3,6 +3,9 @@ package br.com.ifpe.uevents.util;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Calendar;
 
 import org.springframework.web.multipart.MultipartFile;
