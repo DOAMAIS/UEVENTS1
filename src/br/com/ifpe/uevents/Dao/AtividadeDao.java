@@ -25,7 +25,7 @@ public class AtividadeDao {
 	public void cadastrar(Atividade atividade){
 		
 		PreparedStatement stmt;
-		String sql = "INSERT INTO atividade (nome_atividade, descricao_atividade, orientador, observacao, data_atividade, hora_inicio, hora_termino,limite, id_evento) values (?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO atividade (nome_atividade, descricao_atividade, orientador, observacao, data_atividade, hora_inicio, hora_termino,limite, id_evento, local) values (?,?,?,?,?,?,?,?,?,?)";
 		
 		try{
 			stmt = connection.prepareStatement(sql);
@@ -39,6 +39,7 @@ public class AtividadeDao {
 			stmt.setString(7, atividade.getHoraTermino());
 			stmt.setInt(8, atividade.getLimite());
 			stmt.setInt(9, atividade.getId_evento());
+			stmt.setString(10, atividade.getLocal());
 			
 			stmt.execute();
 			connection.close();
@@ -50,7 +51,7 @@ public class AtividadeDao {
 	public void alterar(Atividade atividade){
 		
 		PreparedStatement stmt;
-		String sql = "UPDATE atividade nome_atividade = ?, descricao_atividade= ?, orientador = ?, observacao = ?, data_atividade = ?, hora_inicio = ?, hora_termino = ?,limite = ? where id=?";
+		String sql = "UPDATE atividade nome_atividade = ?, descricao_atividade= ?, orientador = ?, observacao = ?, data_atividade = ?, hora_inicio = ?, hora_termino = ?,limite = ?, local =?  where id=?";
 		
 		try{
 			stmt = connection.prepareStatement(sql);
@@ -63,7 +64,8 @@ public class AtividadeDao {
 			stmt.setString(6, atividade.getHoraInicio());
 			stmt.setString(7, atividade.getHoraTermino());
 			stmt.setInt(8, atividade.getLimite());
-			stmt.setInt(8, atividade.getId());
+			stmt.setString(9, atividade.getLocal());
+			stmt.setInt(10, atividade.getId());
 			
 			stmt.execute();
 			connection.close();
@@ -93,6 +95,7 @@ public class AtividadeDao {
 				atv.setHoraInicio(rs.getString("hora_inicio").substring(0, 5));
 				atv.setHoraTermino(rs.getString("hora_termino").substring(0, 5));
 				atv.setOrientador(rs.getString("orientador"));
+				atv.setLocal(rs.getString("local"));
 				atv.setLimite(rs.getInt("limite"));
 				atv.setId_evento(rs.getInt("id_evento"));
 				
