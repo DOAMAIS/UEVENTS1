@@ -7,6 +7,7 @@ public class Atividade {
 	private int id;
 	private int id_evento;
 	private String orientador;
+	private String local;
 	private String nome;
 	private String descricao;
 	private String observacao;
@@ -73,6 +74,12 @@ public class Atividade {
 	}
 	public void setLimite(int limite) {
 		this.limite = limite;
+	}
+	public String getLocal() {
+		return local;
+	}
+	public void setLocal(String local) {
+		this.local = local;
 	}
 	
 
