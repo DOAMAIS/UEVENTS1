@@ -1,6 +1,9 @@
 package br.com.ifpe.uevents.Model;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
+
+import br.com.ifpe.uevents.util.Util;
 
 public class Usuario {
      private int id;
@@ -44,8 +47,12 @@ public class Usuario {
 	public String getSenha() {
 		return senha;
 	}
-	public void setSenha(String senha) {
-		this.senha = senha;
+	public void setSenha(String senha){
+		try {
+			this.senha = Util.crypto(senha);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 	}
 	public List<Atividade> getAtividades() {
 		return atividades;
