@@ -61,6 +61,7 @@ public class UsuarioDao {
 		}
 		
 	}
+	
 	public Usuario montarObjeto(ResultSet rs) throws SQLException {
 		
 		 Usuario usuario = new Usuario();
@@ -75,12 +76,28 @@ public class UsuarioDao {
 				 
 	 }
 	 
+	//<button href="página?id=${atividade.id}"></button>
+	 public void participarAtividade(Usuario usuario, Atividade atividade){
+		PreparedStatement stmt;
+		String sql = "INSERT INTO usuario_has_atividade (id_atividade, id_usuario) values(?,?);";
+		try{
+			stmt = connection.prepareStatement(sql);
+			stmt.setInt(1, atividade.getId());
+			stmt.setInt(2, usuario.getId());
+
+			stmt.execute();
+			connection.close();
+		}catch(SQLException e){
+			throw new RuntimeException(e);
+		}
+	 }
+	
 	 public List<Atividade> listarAtvs(Usuario usuario){
 		
 		List<Atividade> listaAtividades = new ArrayList<>();
 		ResultSet rs;
 		PreparedStatement stmt;
-		String sql = "SELECT atividade.usuario_has_atividade where id_usuario = ?";
+		String sql = "select * from usuario_has_atividade, usuario, atividade WHERE usuario_has_atividade.id_atividade = atividade.id and usuario_has_atividade.id_usuario=usuario.id and usuario.id=?;";
 		
 		try{
 			stmt = connection.prepareStatement(sql);
@@ -97,6 +114,7 @@ public class UsuarioDao {
 				atv.setHoraInicio(rs.getString("hora_inicio").substring(0, 5));
 				atv.setHoraTermino(rs.getString("hora_termino").substring(0, 5));
 				atv.setOrientador(rs.getString("orientador"));
+				atv.setLocal(rs.getString("local"));
 				atv.setLimite(rs.getInt("limite"));
 				atv.setId_evento(rs.getInt("id_evento"));
 				
