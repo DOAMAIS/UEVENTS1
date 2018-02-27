@@ -93,7 +93,6 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `uvents`.`usuario_has_atividade` (
   `id_usuario` INT NOT NULL,
   `id_atividade` INT NOT NULL,
-  `presenca` INT NOT NULL,
   PRIMARY KEY (`id_usuario`, `id_atividade`),
   INDEX `fk_usuario_has_atividade_atividade1_idx` (`id_atividade` ASC),
   INDEX `fk_usuario_has_atividade_usuario1_idx` (`id_usuario` ASC),
