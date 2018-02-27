@@ -39,5 +39,10 @@ public class UsuarioController {
 		model.addAttribute("msg", "Login e/ou senha inválidos.");
 		return "telas/index";
 	}
+	 @RequestMapping("logout")
+	 public String logout(HttpSession session) {
+	  session.invalidate();
+	  return "telas/index";
+	}
 
 }
