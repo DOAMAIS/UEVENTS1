@@ -8,8 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.com.ifpe.uevents.Dao.AtividadeDao;
+import br.com.ifpe.uevents.Dao.EventoDao;
 import br.com.ifpe.uevents.Dao.UsuarioDao;
 import br.com.ifpe.uevents.Model.Atividade;
+import br.com.ifpe.uevents.Model.Evento;
 import br.com.ifpe.uevents.Model.Usuario;
 
 @Controller
@@ -31,18 +34,31 @@ public class UsuarioController {
 		Usuario usuarioLogado = dao.buscarUsuario(usuario);
 		if (usuarioLogado != null) {
 			//usuarioLogado.setAtividades(dao.listarAtvs(usuario));
-			//List<Atividade> atvsUsuarioLogado = new UsuarioDao().listarAtvs(usuarioLogado);
-			//model.addAttribute("atvsUsuarioLogado", atvsUsuarioLogado);
+			List<Evento> listaEventos = new EventoDao().listar();
+			model.addAttribute("qtdEventos", listaEventos.size());
+			model.addAttribute("listaEventos", listaEventos);
+			List<Atividade> atvsUsuarioLogado = new UsuarioDao().listarAtvs(usuarioLogado);
+			model.addAttribute("atvsUsuarioLogado", atvsUsuarioLogado);
 			session.setAttribute("usuarioLogado", usuarioLogado);
 		    return "telas/inicialEvento";
 		}
 		model.addAttribute("msg", "Login e/ou senha inválidos.");
 		return "telas/index";
 	}
+	
+	@RequestMapping("tela de confimação")
+	public String participar(Atividade atividade, HttpSession session, Model model){
+		Atividade atvEscolhida = new AtividadeDao().buscarPorId(atividade);
+		model.addAttribute("atvEscolhida", atvEscolhida);
+		Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
+		UsuarioDao dao = new UsuarioDao();
+		dao.participarAtividade(usuarioLogado, atividade);
+		return "tela de confimação";
+	}
 	 @RequestMapping("logout")
 	 public String logout(HttpSession session) {
-	  session.invalidate();
-	  return "telas/index";
-	}
+	    session.invalidate();
+	    return "telas/index";
+	 }
 
 }
