@@ -46,14 +46,14 @@ public class UsuarioController {
 		return "telas/index";
 	}
 	
-	@RequestMapping("tela de confimação")
+	@RequestMapping("confirmarParticipacao")
 	public String participar(Atividade atividade, HttpSession session, Model model){
 		Atividade atvEscolhida = new AtividadeDao().buscarPorId(atividade);
 		model.addAttribute("atvEscolhida", atvEscolhida);
 		Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
 		UsuarioDao dao = new UsuarioDao();
 		dao.participarAtividade(usuarioLogado, atividade);
-		return "tela de confimação";
+		return "telas/confirmarParticipacao";
 	}
 	 @RequestMapping("logout")
 	 public String logout(HttpSession session) {

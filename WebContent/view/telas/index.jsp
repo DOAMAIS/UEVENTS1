@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Uvents</title>
+<title>UEVENTS</title>
 <c:import url="/view/linkcss.jsp" />
 
 
