@@ -14,6 +14,7 @@ import br.com.ifpe.uevents.Dao.UsuarioDao;
 import br.com.ifpe.uevents.Model.Atividade;
 import br.com.ifpe.uevents.Model.Evento;
 import br.com.ifpe.uevents.Model.Usuario;
+import br.com.ifpe.uevents.util.Mensagens;
 
 @Controller
 public class UsuarioController {
@@ -26,6 +27,8 @@ public class UsuarioController {
 	public String inserirUser(Usuario usuario){
 		UsuarioDao dao = new UsuarioDao();
 		dao.cadastrar(usuario);
+		model.addAttribute("qtdEventos",Mensagens.UsuarioCadastradoSucesso);
+		model.addAttribute("listaEventos", listaEventos);
 		return "telas/cadasUsuario";
 	}
 	@RequestMapping("efetuaLogin")
@@ -39,6 +42,8 @@ public class UsuarioController {
 			model.addAttribute("listaEventos", listaEventos);
 			List<Atividade> atvsUsuarioLogado = new UsuarioDao().listarAtvs(usuarioLogado);
 			model.addAttribute("atvsUsuarioLogado", atvsUsuarioLogado);
+			List<Atividade> listaAtividades = new AtividadeDao().listar();
+			model.addAttribute("listaAtividades", listaAtividades);
 			session.setAttribute("usuarioLogado", usuarioLogado);
 		    return "telas/inicialEvento";
 		}

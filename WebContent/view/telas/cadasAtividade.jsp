@@ -50,6 +50,7 @@
 		<input type="text" class="form-control" name="data"  placeholder="11/07/2001 - data do evento" required/><br/>
 		<input type="text" class="form-control" name="horaInicio" placeholder="13:00 - hora de início" required/> &nbsp; &nbsp; &nbsp;
 		<input type="text" class="form-control" name="horaTermino" placeholder="13:00 - hora de término" required/><br/>
+		<input type="text" class="form-control" name="local" placeholder="Local da Atividade" required/><br/>
 	  	<textarea class="form-control" name="descricao" id="descricao"placeholder="Descrição da Atividade" maxlength="150" onkeydown="restantes(this.id);"></textarea>
 	  	<i id="i"></i><br>
 	  	<input type="text" class="form-control" placeholder="Observação(opcional)" name="observacao"/><br/>

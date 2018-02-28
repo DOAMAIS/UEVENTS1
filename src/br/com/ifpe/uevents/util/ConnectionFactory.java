@@ -12,6 +12,8 @@ public class ConnectionFactory {
 		String banco = "uvents";
 		String user = "root";
 		String senha = "@luno1fpe";
+
+branch 'master' of https://github.com/DOAMAIS/UEVENTS1.git
 		
 		try{
 			Class.forName("com.mysql.jdbc.Driver");

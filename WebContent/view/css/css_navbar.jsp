@@ -68,7 +68,7 @@ body {
 
 }
 ul.nav.navbar-nav.navbar-right{
-	color: #f9f9f9;
+	color: transparent;
 }
 </style>
 </head>
