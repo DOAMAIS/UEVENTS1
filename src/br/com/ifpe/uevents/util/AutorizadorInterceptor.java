@@ -20,6 +20,7 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 				uri.contains("js") || 
 				uri.endsWith("uevents/")|| 
 				uri.endsWith("cadasUsuario") || 
+		    		uri.endsWith("inserirUsuario") || 
 				uri.endsWith("visualizarEventos") ||
 				uri.endsWith("efetuaLogin")) {
 			
