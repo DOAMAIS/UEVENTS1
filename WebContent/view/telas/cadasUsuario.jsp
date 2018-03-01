@@ -19,9 +19,9 @@
 	
 	<div class="limiter">
 		<div class="container-login100">
-			<div class="wrap-login100 p-t-85 p-b-20">
+			<div class="wrap-login100 p-t-25 p-b-20">
 				<form class="login100-form validate-form" action="inserirUsuario" method="post">
-					<span class="login100-form-title p-b-70">
+					<span class="login100-form-title p-b-20">
 						UEVENTS
 					</span>
 					</span>
@@ -64,7 +64,7 @@
 						</button>
 					</div>
 
-					<ul class="login-more p-t-30">
+					<ul class="login-more p-t-15">
 						<li>
 							<span class="txt1">
 								Já tem conta?
