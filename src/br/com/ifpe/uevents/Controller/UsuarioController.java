@@ -24,11 +24,10 @@ public class UsuarioController {
 		return "telas/cadasUsuario";
 	}
 	@RequestMapping("inserirUsuario")
-	public String inserirUser(Usuario usuario){
+	public String inserirUser(Usuario usuario,Model model){
 		UsuarioDao dao = new UsuarioDao();
+		model.addAttribute("mensagem", "Usuário cadastrado com Sucesso");
 		dao.cadastrar(usuario);
-		model.addAttribute("qtdEventos",Mensagens.UsuarioCadastradoSucesso);
-		model.addAttribute("listaEventos", listaEventos);
 		return "telas/cadasUsuario";
 	}
 	@RequestMapping("efetuaLogin")
