@@ -70,7 +70,7 @@
 								Já tem conta?
 							</span>
 
-							<a href="/" class="txt2">
+							<a href="uevents" class="txt2">
 								Clique aqui!
 							</a>
 						</li>
