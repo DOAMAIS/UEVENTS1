@@ -64,7 +64,7 @@
 						</button>
 					</div>
 
-					<ul class="login-more p-t-190">
+					<ul class="login-more p-t-50">
 						<li>
 							<span class="txt1">
 								Já tem conta?
