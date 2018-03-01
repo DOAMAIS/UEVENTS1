@@ -48,9 +48,9 @@
 						<option>Selecione o tipo de usuário...</option>
 						<option value="1">Convidado</option>
 						<option value="2">Aluno</option>
-						<option value="3">Professor</option>
+
 					</select>
-					<br>
+				
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
 							Cadastrar
