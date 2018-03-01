@@ -24,6 +24,13 @@
 					<span class="login100-form-title p-b-70">
 						UEVENTS
 					</span>
+					</span>
+					 <c:if test="${mensagem != null }">
+						<div class="alert alert-success"> 
+					      <button type="button" class="close" data-dismiss="alert" aria-hidden="true" >×</button>
+					      <span> ${mensagem} </span>
+					    </div>
+					</c:if>
 					
 					<div class="wrap-input100 validate-input m-b-35" data-validate = "Enter matriculation">
 						<input class="input100" type="text" name="nome">
