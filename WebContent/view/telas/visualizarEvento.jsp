@@ -1,22 +1,24 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-   
+   <title>Visualizar Eventos</title>
     <c:import url="/view/linkcss.jsp" />
-    <c:import url="../comum/navbar.jsp" />
+    
+    <link rel="stylesheet" href="/view/bootstrap/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="/view/bootstrap/js/bootstrap.min.js"></script>
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
     
-    
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-
-         <style type="text/css">
-      body {
-    padding-top: 30px;
+ <style type="text/css">
+   body {
+    	padding-top: 30px;
 }
 
 .faq-cat-content {
@@ -131,11 +133,12 @@
     </style>
 
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <br><br><br>
+    <script src="/view/bootstrap/js/bootstrap.min.js"></script>
+    
 </head>
 <body>
-
+<c:import url="../comum/navbar.jsp" />
+<br><br><br>
 <div class="container">   
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -231,5 +234,6 @@ $(document).ready(function() {
     });
 });
 </script>
+<c:import url="/view/linkjs.jsp" />
 </body>
 </html>

@@ -5,7 +5,6 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	
 </head>
-<body>
 <nav class="navbar navbar-fixed-top navbar-dark">
 	<div class="container">
 		<div class="navbar-header">
@@ -24,7 +23,7 @@
 		</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right" >
-				<li><a class="navbar-brand" href="visualizarEventos">Visualizar eventos</a> </li>
+				<li><a class="navbar-brand" href="/uevents/visualizarEventos">Visualizar eventos</a> </li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->

@@ -29,6 +29,6 @@
 	</bean>
 	<mvc:interceptors>
      <bean class="br.com.ifpe.uevents.util.AutorizadorInterceptor" />
-        </mvc:interceptors>
+    </mvc:interceptors>
 	
 </beans>

@@ -1,21 +1,20 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
   
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-   
+   <title>HOME</title>
     <c:import url="/view/linkcss.jsp" />
-    <c:import url="../comum/navbarUsuario.jsp" />
+    
+    <link rel="stylesheet" href="/view/bootstrap/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="/view/bootstrap/js/bootstrap.min.js"></script>
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
-    
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-
-         <style type="text/css">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
       body {
     padding-top: 30px;
 }
@@ -81,13 +80,13 @@
     cursor: pointer;
 }
 
-   .custab{
-                border: 1px solid #ccc;
-                padding: 5px;
-                margin: 5% 0;
-                box-shadow: 3px 3px 2px #ccc;
-                transition: 0.5s;
-                }
+.custab{
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+ }
                 
 
             hr{
@@ -131,17 +130,23 @@
 }
     </style>
 
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <br><br><br>
+        
 </head>
 <body>
-
+<c:import url="../comum/navbarUsuario.jsp" />
+<br><br><br>
 <div class="container">   
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <!-- Nav tabs category -->
-            <div class="center"><h1>Bem vindo ${usuarioLogado.nome }!</h1></div>
+            <div class="center"><h1>Bem vindo, ${usuarioLogado.nome}!</h1></div>
+            <!-- Teste de alerta, qualquer coisa é só tirar -->
+					<c:if test="${msg != null }">
+						<div class="alert alert-success">
+					      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					      <span><strong> Parabéns:</strong> ${msg} </span>
+					    </div>
+					</c:if>
             <ul class="nav nav-tabs faq-cat-tabs">
                 <li class="active"><a href="#faq-cat-1" data-toggle="tab">Eventos</a></li>
                 <li><a href="#faq-catative-2" data-toggle="tab">Atividades</a></li>
@@ -195,7 +200,7 @@
                                                         <td>${atividade.nome}</td>
                                                         <td><fmt:formatDate value="${atividade.data}" pattern="dd/MM/yyyy"/></td>
                                                         <td>${atividade.horaInicio}</td>
-                                                        <td><button class="buttona button1">Participar</button>
+                                                        <td><a href="participarAtividade?id=${atividade.id}"><button class="buttona button1">Participar</button></a>
                                                     </tr>
                                                 </c:if>
                                              </c:forEach>
@@ -223,19 +228,11 @@
                                 <div class="panel-body">
                                 <div id="Atividades">
             <table class="table table-striped custab">
-                        <thead>
-                            <tr>
-                                <th>Atividades</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <c:forEach var="atividade" items="${listaAtividades}">
-                            <c:if test="${evento.id == atividade.id_evento }">
+                        <c:forEach var="atividade" items="${atvsUsuarioLogado}">
                                 <tr>
-                                    <td>${atividade.nome}</td>
-                                    <td><button class="buttonb button1">Cancelar</button></td>
+                                    <th>${atividade.nome}</th>
+                                    <th><button class="buttonb button1">Cancelar</button></th>
                                 </tr>
-                            </c:if>
                         </c:forEach>
             </table>
                                 </div>
@@ -268,5 +265,6 @@ $(document).ready(function() {
     });
 });
 </script>
+<c:import url="/view/linkjs.jsp" />
 </body>
 </html>

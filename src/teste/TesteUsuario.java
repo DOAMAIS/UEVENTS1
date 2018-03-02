@@ -40,23 +40,23 @@ public class TesteUsuario {
 	@Test
 	public void testeListarAtvs(){
 		Usuario usu = new Usuario();
-		usu.setId(2);
+		usu.setId(9);
 		
 		List<Atividade> listaAtvs = new UsuarioDao().listarAtvs(usu);
 		for (Atividade atv : listaAtvs) {
-			System.out.println(atv.getNome());
-			System.out.println(atv.getData());
-			System.out.println(atv.getHoraInicio().substring(0, 5));
+			System.out.println("Atividade: "+atv.getNome());
+			System.out.println("Data: "+atv.getData());
+			System.out.println("Horário: "+atv.getHoraInicio().substring(0, 5));
 		}
 	}
 	
 	@Test
 	public void testeParticiparAtvs(){
 		Usuario usu = new Usuario();
-		usu.setId(2);
+		usu.setId(9);
 		
 		Atividade atv = new Atividade();
-		atv.setId(1);
+		atv.setId(2);
 		
 		new UsuarioDao().participarAtividade(usu, atv);
 

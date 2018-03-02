@@ -18,8 +18,8 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85 p-b-20">
-				<form action="efetuaLogin" method="post" class="login100-form validate-form">
-					<span class="login100-form-title p-b-70"> UVENTS </span>
+				<form action="home" method="post" class="login100-form validate-form">
+					<span class="login100-form-title p-b-70"> UEVENTS </span>
 					<!-- Teste de alerta, qualquer coisa é só tirar -->
 					<c:if test="${msg != null }">
 						<div class="alert alert-danger">

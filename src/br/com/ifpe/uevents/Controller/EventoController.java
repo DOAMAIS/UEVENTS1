@@ -47,16 +47,6 @@ public class EventoController {
 		System.out.println("visualizar");
 		return "telas/visualizarEvento";
 	}
-	@RequestMapping("inicialEvento")
-	public String visualizarLogado(Model model){
-		EventoDao dao = new EventoDao();
-		List<Evento> listaEventos = dao.listar();
-		model.addAttribute("listaEventos", listaEventos);
-		List<Atividade> listaAtividades = new AtividadeDao().listar();
-		model.addAttribute("listaAtividades", listaAtividades);
-		System.out.println("visualizar");
-		return "telas/inicialEvento";
-	}
 	/*
 	 * <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 	 * <c:forEach var="evento" items="${listaEventos}">
