@@ -11,16 +11,14 @@
 </c:if>
 <title>UEVENTS</title>
 <c:import url="/view/linkcss.jsp" />
-
-
 </head>
 <body>
 <c:import url="../comum/navbar.jsp" />
 	<div class="limiter">
 		<div class="container-login100">
-			<div class="wrap-login100 p-t-85 p-b-20">
+			<div class="wrap-login100 p-t-50 p-b-20">
 				<form class="login100-form validate-form" action="inserirUsuario" method="post">
-					<span class="login100-form-title p-b-70">
+					<span class="login100-form-title p-b-50">
 						UEVENTS
 					</span>
 					<c:if test="${msg != null }">
@@ -60,7 +58,7 @@
 						</button>
 					</div>
 
-					<ul class="login-more p-t-190">
+					<ul class="login-more p-t-30">
 						<li>
 							<span class="txt1">
 								Já tem conta?
