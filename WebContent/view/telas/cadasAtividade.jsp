@@ -28,14 +28,27 @@
 		      border-radius: 5px;
 		      -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
 		      box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
-    	}
+		}		      
+		 .widget {
+			  background-color: #FFF;
+			  width:400px;
+			  margin:50px auto 0;
+			  padding:20px 30px;
+			  box-shadow:0 10px 20px rgba(0, 0, 0, 0.30	);
+			  border-left: 5px solid #5cb85c;
+			  position:absolute;
+			  left:38%;
+		  	  top:5%;
+		}     
+
 	</style>
 	<link rel="stylesheet" type="text/css" href="view/bootstrap/css/bootstrap.min.css" />
 	<script type="text/javascript" src="view/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
+<c:import url="../comum/navbarUsuario.jsp" />
+	<div class="widget">
 	<form action="inserirAtividade" method="post" enctype="multipart/form-data">
-	<div id="card" style="text-align: center;">
 	  <h2>Nova Atividade</h2>
 	 	<select class="form-control" name="id_evento">
 	 		<option>Selecione o Evento</option>
@@ -56,7 +69,7 @@
 	  	<input type="text" class="form-control" placeholder="Observação(opcional)" name="observacao"/><br/>
 	  	<input type="number" class="form-control" placeholder="Limite de Pessoas" name="limite" required/><br/>
 	  	<button class="btn btn-success">Nova Atividade</button>
-	</div>
 	</form>
+	
 </body>
 </html>
