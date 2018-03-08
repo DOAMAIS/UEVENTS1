@@ -114,8 +114,8 @@ INSERT INTO tipo_usuario (id, descricao) values(3, "professor");
 
 -- INSERTS DEFAULT mo vei
 
-INSERT INTO `evento` VALUES (1,null,'Missa Dominical','2018-12-11','2018-12-11','Deus te abençoe','ativo'),
-                            (2,NULL,'Semana de Tecnologia','2018-09-11','2018-09-18','Arroz','ativo');
+INSERT INTO `evento` VALUES (1,null,"Missa Dominical",'2018-12-11','2018-12-11','Deus te abençoe','ativo'),
+                            (2,NULL,'Semana de Tecnologia','2018-09-11','2018-09-18','Várias palestras','ativo');
                             
 INSERT INTO `atividade` VALUES (1,1,'Oração Inicial','Edmarcos','Capela Ns. Senhora','2018-12-12','12:00:00','12:15:00','Benção na sua vida','Tudo certo',500),
                                 (2,2,'Palestra - Arroz com feijão','Prof° Zé Doido','Sala 2','2018-02-27','11:00:00','12:00:00','Amanhã','kkk',45);
