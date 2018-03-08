@@ -38,9 +38,9 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `uvents`.`atividade` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `id_evento` INT NOT NULL,
+  `nome_atividade` VARCHAR(100) NOT NULL,
   `orientador` VARCHAR(100) NOT NULL,
   `local` VARCHAR(100) NOT NULL,
-  `nome_atividade` VARCHAR(100) NOT NULL,
   `data_atividade` DATE NOT NULL,
   `hora_inicio` TIME NOT NULL,
   `hora_termino` TIME NOT NULL,
