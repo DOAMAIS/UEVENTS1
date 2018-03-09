@@ -27,22 +27,22 @@
 						      <span><strong> Parabéns:</strong> ${msg} </span>
 						</div>
 					</c:if>
-					<div class="wrap-input100 validate-input m-b-35" data-validate = "Enter matriculation">
+					<div class="wrap-input100 validate-input m-b-35" data-validate = "Escreva seu nome">
 						<input class="input100" type="text" name="nome">
 						<span class="focus-input100" data-placeholder="Nome"></span>
 					</div>
 					
-					<div class="wrap-input100 validate-input m-b-35" data-validate = "Enter matriculation">
+					<div class="wrap-input100 validate-input m-b-35" data-validate = "Escreva seu CPF">
 						<input class="input100" type="text" name="cpf">
 						<span class="focus-input100" data-placeholder="CPF"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input m-b-35" data-validate = "Enter email">
+					<div class="wrap-input100 validate-input m-b-35" data-validate = "Escreva seu e-mail">
 						<input class="input100" type="text" name="email">
 						<span class="focus-input100" data-placeholder="E-mail"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input m-b-35" data-validate="Enter password">
+					<div class="wrap-input100 validate-input m-b-35" data-validate="Escreva uma senha">
 						<input class="input100" type="password" name="senha">
 						<span class="focus-input100" data-placeholder="Senha"></span>
 					</div>
