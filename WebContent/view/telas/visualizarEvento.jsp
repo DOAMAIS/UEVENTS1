@@ -137,7 +137,7 @@
     
 </head>
 <body>
-<c:import url="../comum/navbar.jsp" />
+<c:import url="../comum/navbarVisu.jsp" />
 <br><br><br>
 <div class="container">   
     <div class="row">
