@@ -87,7 +87,7 @@ html, body {
   <div class="row">
  
     <a class="btn btn-success" href="participacaoConfirmada?id=${atvEscolhida.id}">Confirmar</a> &nbsp 
-	<a class="btn btn-danger" href=""> Cancelar</a>
+	<a class="btn btn-danger" href="CancelarParticipacao"> Cancelar</a>
   </div>
   <div style="clear:both;"></div>
 </div>
