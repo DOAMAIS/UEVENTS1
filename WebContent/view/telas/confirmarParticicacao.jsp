@@ -25,6 +25,9 @@ html, body {
   padding:20px 30px;
   box-shadow:0 0 20px rgba(0, 0, 0, 0.15);
   border-left: 5px solid #5cb85c;
+  position:absolute;
+  left:38%;
+  top:20%;
 }
 .widget input[type=text] {
   border: 1px solid #eee;
@@ -83,8 +86,8 @@ html, body {
   
   <div class="row">
  
-    <a class="btn btn-success" href="participacaoConfirmada?id=${atvEscolhida.id}">Confirmar</a>
-
+    <a class="btn btn-success" href="participacaoConfirmada?id=${atvEscolhida.id}">Confirmar</a> &nbsp 
+	<a class="btn btn-danger" href=""> Cancelar</a>
   </div>
   <div style="clear:both;"></div>
 </div>
