@@ -43,14 +43,15 @@ public class UsuarioController {
 			//Lista de Atividades
 			List<Atividade> listaAtividades = new AtividadeDao().listar();
 			model.addAttribute("listaAtividades", listaAtividades);
-			//Lista de Atividades do Usuário
+			//Lista de Atividades do UsuÃ¡rio
 			List<Atividade> atvsUsuarioLogado = new UsuarioDao().listarAtvs(usuarioLogado);
 			model.addAttribute("atvsUsuarioLogado", atvsUsuarioLogado);
+			usuarioLogado.setAtividades(atvsUsuarioLogado);
 
 			session.setAttribute("usuarioLogado", usuarioLogado);
 		    return "telas/inicialEvento";
 		}
-		model.addAttribute("msg", "Login e/ou senha inválidos.");
+		model.addAttribute("msg", "Login e/ou senha invÃ¡lidos.");
 		return "telas/index";
 	}
 
@@ -59,6 +60,7 @@ public class UsuarioController {
 		Atividade atvEscolhida = new AtividadeDao().buscarPorId(atividade);
 		model.addAttribute("atvEscolhida", atvEscolhida);
 		return "telas/confirmarParticicacao";
+		
 	}
 	
 	@RequestMapping("/participacaoConfirmada")
@@ -66,17 +68,13 @@ public class UsuarioController {
 		Atividade atvEscolhida = new AtividadeDao().buscarPorId(atividade);
 		model.addAttribute("atvEscolhida", atvEscolhida);
 		Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
-		UsuarioDao dao = new UsuarioDao();
-		dao.participarAtividade(usuarioLogado, atividade);
-		model.addAttribute("msg", "Participação confirmada com sucesso!");
-		
 		//Lista de Eventos
 		List<Evento> listaEventos = new EventoDao().listar();
 		model.addAttribute("listaEventos", listaEventos);
 		//Lista de Atividades
 		List<Atividade> listaAtividades = new AtividadeDao().listar();
 		model.addAttribute("listaAtividades", listaAtividades);
-		//Lista de Atividades do Usuário
+		//Lista de Atividades do UsuÃ¡rio
 		List<Atividade> atvsUsuarioLogado = new UsuarioDao().listarAtvs(usuarioLogado);
 		model.addAttribute("atvsUsuarioLogado", atvsUsuarioLogado);
 
@@ -87,5 +85,23 @@ public class UsuarioController {
 	    session.invalidate();
 	    return "telas/index";
 	 }
+	 @RequestMapping("/CancelarParticipacao")
+		public String cancelar(Atividade atividade, HttpSession session, Model model){
+			Atividade atvEscolhida = new AtividadeDao().buscarPorId(atividade);
+			model.addAttribute("atvEscolhida", atvEscolhida);
+			Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
+			//Lista de Eventos
+			List<Evento> listaEventos = new EventoDao().listar();
+			model.addAttribute("listaEventos", listaEventos);
+			//Lista de Atividades
+			List<Atividade> listaAtividades = new AtividadeDao().listar();
+			model.addAttribute("listaAtividades", listaAtividades);
+			//Lista de Atividades do UsuÃ¡rio
+			List<Atividade> atvsUsuarioLogado = new UsuarioDao().listarAtvs(usuarioLogado);
+			model.addAttribute("atvsUsuarioLogado", atvsUsuarioLogado);
+
+			return "telas/inicialEvento";
+		}
+		 
 
 }
