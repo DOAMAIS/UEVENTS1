@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <head>
-	<c:import url="/view/linkcss.jsp" />
+	
 	<c:import url="../css/css_navbar.jsp" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	
@@ -25,6 +25,10 @@
 			<ul class="nav navbar-nav navbar-right" >
 				<li><a class="navbar-brand" href="/uevents/visualizarEventos">Visualizar eventos</a> </li>
 			</ul>
+				<ul class="nav navbar-nav navbar-right" >
+				<li><a class="navbar-brand" href="/uevents/cadasUsuario">Cadastre-se</a> </li>
+			</ul>
+			
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
 </nav>
