@@ -43,7 +43,7 @@ public class UsuarioController {
 			//Lista de Atividades
 			List<Atividade> listaAtividades = new AtividadeDao().listar();
 			model.addAttribute("listaAtividades", listaAtividades);
-			//Lista de Atividades do Usu�rio
+			//Lista de Atividades do Usuário
 			List<Atividade> atvsUsuarioLogado = new UsuarioDao().listarAtvs(usuarioLogado);
 			model.addAttribute("atvsUsuarioLogado", atvsUsuarioLogado);
 
@@ -77,6 +77,26 @@ public class UsuarioController {
 		List<Atividade> listaAtividades = new AtividadeDao().listar();
 		model.addAttribute("listaAtividades", listaAtividades);
 		//Lista de Atividades do Usu�rio
+		List<Atividade> atvsUsuarioLogado = new UsuarioDao().listarAtvs(usuarioLogado);
+		model.addAttribute("atvsUsuarioLogado", atvsUsuarioLogado);
+
+		return "telas/inicialEvento";
+	}
+	@RequestMapping("/cancelar")
+	public String cancelar(Atividade atividade, HttpSession session, Model model){
+		Atividade atvEscolhida = new AtividadeDao().buscarPorId(atividade);
+		model.addAttribute("atvEscolhida", atvEscolhida);
+		Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
+	
+		
+		
+		//Lista de Eventos
+		List<Evento> listaEventos = new EventoDao().listar();
+		model.addAttribute("listaEventos", listaEventos);
+		//Lista de Atividades
+		List<Atividade> listaAtividades = new AtividadeDao().listar();
+		model.addAttribute("listaAtividades", listaAtividades);
+		//Lista de Atividades do Usuário
 		List<Atividade> atvsUsuarioLogado = new UsuarioDao().listarAtvs(usuarioLogado);
 		model.addAttribute("atvsUsuarioLogado", atvsUsuarioLogado);
 
