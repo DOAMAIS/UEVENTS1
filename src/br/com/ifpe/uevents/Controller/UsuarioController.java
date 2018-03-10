@@ -14,6 +14,7 @@ import br.com.ifpe.uevents.Dao.UsuarioDao;
 import br.com.ifpe.uevents.Model.Atividade;
 import br.com.ifpe.uevents.Model.Evento;
 import br.com.ifpe.uevents.Model.Usuario;
+import br.com.ifpe.uevents.util.Mensagens;
 
 @Controller
 public class UsuarioController {
@@ -27,8 +28,8 @@ public class UsuarioController {
 			UsuarioDao dao = new UsuarioDao();
 			dao.cadastrar(usuario);
 			
-			model.addAttribute("msg", "Cadastro efetuado com sucesso!");
-	
+		model.addAttribute("msg", Mensagens.UsuarioCadastradoSucesso);
+
 			return "telas/cadasUsuario";
 		}
 		
@@ -43,14 +44,14 @@ public class UsuarioController {
 				//Lista de Atividades
 				List<Atividade> listaAtividades = new AtividadeDao().listarAtividadeUsuario(usuarioLogado);
 				model.addAttribute("listaAtividades", listaAtividades);
-				//Lista de Atividades do Usu�rio
+				//Lista de Atividades do Usuario
 				List<Atividade> atvsUsuarioLogado = new UsuarioDao().listarAtvs(usuarioLogado);
 				model.addAttribute("atvsUsuarioLogado", atvsUsuarioLogado);
 	
 				session.setAttribute("usuarioLogado", usuarioLogado);
 			    return "telas/inicialEvento";
 			}
-			model.addAttribute("msg", "Login e/ou senha inválidos.");
+			model.addAttribute("msg", Mensagens.UsuarioSenhaInvalido);
 			return "telas/index";
 		}
 
@@ -68,7 +69,7 @@ public class UsuarioController {
 			Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
 			UsuarioDao dao = new UsuarioDao();
 			dao.participarAtividade(usuarioLogado, atividade);
-			model.addAttribute("msg", "Participação confirmada com sucesso!");
+			model.addAttribute("msg", Mensagens.ParticipacaoConfirmada);
 			
 			//Lista de Eventos
 			List<Evento> listaEventos = new EventoDao().listar();
@@ -88,7 +89,7 @@ public class UsuarioController {
 
 			Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
 		
-			
+			model.addAttribute("msg", Mensagens.ParticipacaoCancelada);
 			
 			//Lista de Eventos
 			List<Evento> listaEventos = new EventoDao().listar();
