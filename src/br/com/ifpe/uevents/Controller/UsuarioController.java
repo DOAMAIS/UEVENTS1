@@ -103,6 +103,24 @@ public class UsuarioController {
 	
 			return "telas/inicialEvento";
 		}
+		@RequestMapping("/exibirAlterarUsuario")
+	    public String exibirAlterarUsuario(Usuario Usuario, Model model,HttpSession session) {
+		UsuarioDao dao = new UsuarioDao();
+		Usuario usu = (Usuario) session.getAttribute("usuarioLogado");
+		model.addAttribute("usuario", usu);
+		return "telas/alterarUsuario";
+	    }
+		@RequestMapping("/alterarUsuario")
+	    public String alterarUsuario(Usuario Usuario, Model model) {	
+		UsuarioDao dao = new UsuarioDao();
+		dao.alterar(Usuario);
+		model.addAttribute("msg", "Usuario Alterado com Sucesso!");
+		return "forward:home";
+	    }
+		@RequestMapping("voltaHome")
+	       public String voltaHome(){
+			return "telas/inicialEvento";
+}
 		
 		 @RequestMapping("/logout")
 		 public String logout(HttpSession session) {

@@ -23,10 +23,10 @@
 		</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right" >
-				<li><a class="navbar-brand" href="/uevents/home">Entrar</a> </li> 
+				<li><a class="navbar-brand" href="/uevents/home"> &nbsp; Entrar &nbsp; </a> </li> 
 			</ul>
 			<ul class="nav navbar-nav navbar-right" >
-				<li><a class="navbar-brand" href="/uevents/cadasUsuario">Cadastre-se</a> </li>
+				<li><a class="navbar-brand" href="/uevents/cadasUsuario"> &nbsp; Cadastre-se &nbsp; </a> </li>
 			</ul>
 			
 		</div><!-- /.navbar-collapse -->

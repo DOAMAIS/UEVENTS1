@@ -23,8 +23,12 @@
 		</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right" >
-				<li><a class="navbar-brand" href="logout">Logout</a> </li>
+				<li><a class="navbar-brand" href="logout">&nbsp; Logout &nbsp;</a> </li>
 			</ul>
+			 
+			    <ul class="nav navbar-nav navbar-right" >
+				<li><a class="navbar-brand" href="exibirAlterarUsuario"> &nbsp; Alterar Dados  &nbsp;</a> </li>	
+			   </ul> 
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
 </nav>

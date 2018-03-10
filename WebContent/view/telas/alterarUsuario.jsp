@@ -13,7 +13,7 @@
 <c:import url="/view/linkcss.jsp" />
 </head>
 <body>
-<c:import url="../comum/navbar.jsp" />
+<c:import url="../comum/navbarAlterar.jsp" />
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-20 p-b-20">
@@ -55,8 +55,6 @@
 			</div>
 		</div>
 	</div>
-	
-		<div id="dropDownSelect1"></div>
 <c:import url="/view/linkjs.jsp" />
 	
 
