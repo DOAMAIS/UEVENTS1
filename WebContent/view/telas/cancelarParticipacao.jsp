@@ -72,7 +72,7 @@ html, body {
 	<div class="container">
  		<div class="widget">
   
-  <h1>Cancelar participação na atvidade, ${atvEscolhida.nome} ?</h1>
+  <h2>Cancelar participação na atividade, ${atvEscolhida.nome} ?</h2>
   <div class="row">
     <div class="left">
       <label for="card">Data: <fmt:formatDate value="${atvEscolhida.data}" pattern="dd/MM/yyyy"/></label>
