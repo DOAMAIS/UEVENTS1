@@ -11,125 +11,136 @@
     <link rel="stylesheet" href="/view/bootstrap/css/bootstrap.min.css">
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="/view/bootstrap/js/bootstrap.min.js"></script>
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-<style type="text/css">
-      body {
-    padding-top: 30px;
-}
-
-.faq-cat-content {
-    margin-top: 25px;
-}
-
-.faq-cat-tabs li a {
-    padding: 15px 10px 15px 10px;
-    background-color: #006400;
-    border: 1px solid #dddddd;
-    color: #ffffff;
-}
-
-
-
-.panel-heading a,
-.panel-heading a:hover,
-.panel-heading a:focus {
-    text-decoration: none;
-    color: #006400;
-}
-
-.faq-cat-content .panel-heading:hover {
-    background-color: #efefef;
-}
-.faq-cat-content .panel-heading:hover {
-    background-color: #efefef;
-}
-
-.active-faq {
-    border-left: 5px solid #888888;
-}
-
-.panel-faq .panel-heading .panel-title span {
-    font-size: 13px;
-    font-weight: normal;
-}
-
-
-.custab{
-    border: 1px solid #ccc;
-    padding: 5px;
-    margin: 5% 0;
-    box-shadow: 3px 3px 2px #ccc;
-    transition: 0.5s;
-    }
-.custab:hover{
-    box-shadow: 3px 3px 0px transparent;
-    transition: 0.5s;
-    }
-    .button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 09px 21px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-
-.custab{
-    border: 1px solid #ccc;
-    padding: 5px;
-    margin: 5% 0;
-    box-shadow: 3px 3px 2px #ccc;
-    transition: 0.5s;
- }
-                
-
-            hr{
-                border-color:#4CAF50;;
-            }
-            .button {
-    background-color: #4CAF50; 
-    padding: 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 3px 1px;
-    cursor: pointer;
-}
-.button1 {border-radius: 12px;}
-
-.buttona {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 05px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 3px 1px;
-    cursor: pointer;
-}
-.buttonb {
-    background-color: #FF0000;
-    border: none;
-    color: white;
-    padding: 05px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 3px 1px;
-    cursor: pointer;
-}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+		      body {
+		    padding-top: 30px;
+		}
+		
+		.faq-cat-content {
+		    margin-top: 25px;
+		}
+		
+		.faq-cat-tabs li a {
+		    padding: 15px 10px 15px 10px;
+		    background-color: #006400;
+		    border: 1px solid #dddddd;
+		    color: #ffffff;
+		}
+		
+		
+		
+		.panel-heading a,
+		.panel-heading a:hover,
+		.panel-heading a:focus {
+		    text-decoration: none;
+		    color: #006400;
+		}
+		
+		.faq-cat-content .panel-heading:hover {
+		    background-color: #efefef;
+		}
+		.faq-cat-content .panel-heading:hover {
+		    background-color: #efefef;
+		}
+		
+		.active-faq {
+		    border-left: 5px solid #888888;
+		}
+		
+		.panel-faq .panel-heading .panel-title span {
+		    font-size: 13px;
+		    font-weight: normal;
+		}
+		
+		
+		.custab{
+		    border: 1px solid #ccc;
+		    padding: 5px;
+		    margin: 5% 0;
+		    box-shadow: 3px 3px 2px #ccc;
+		    transition: 0.5s;
+		    }
+		.custab:hover{
+		    box-shadow: 3px 3px 0px transparent;
+		    transition: 0.5s;
+		    }
+		    .button {
+		    background-color: #4CAF50;
+		    border: none;
+		    color: white;
+		    padding: 09px 21px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 16px;
+		    margin: 4px 2px;
+		    cursor: pointer;
+		}
+		
+		.custab{
+		    border: 1px solid #ccc;
+		    padding: 5px;
+		    margin: 5% 0;
+		    box-shadow: 3px 3px 2px #ccc;
+		    transition: 0.5s;
+		 }
+		                
+		
+		            hr{
+		                border-color:#4CAF50;;
+		            }
+		            .button {
+		    background-color: #4CAF50; 
+		    padding: 10px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 16px;
+		    margin: 3px 1px;
+		    cursor: pointer;
+		}
+		.button1 {border-radius: 12px;}
+		
+		.buttona {
+		    background-color: #4CAF50;
+		    border: none;
+		    color: white;
+		    padding: 05px 10px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 14px;
+		    margin: 3px 1px;
+		    cursor: pointer;
+		}
+		.buttonb {
+		    background-color: gray;
+		    border: none;
+		    color: white;
+		    padding: 05px 10px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 14px;
+		    margin: 3px 1px;
+		    cursor: pointer;
+		}
+		.buttonc {
+		    background-color: #FF0000;
+		    border: none;
+		    color: white;
+		    padding: 05px 10px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 14px;
+		    margin: 3px 1px;
+		    cursor: pointer;
+		}
     </style>
-
         
 </head>
 <body>
@@ -200,7 +211,15 @@
                                                         <td>${atividade.nome}</td>
                                                         <td><fmt:formatDate value="${atividade.data}" pattern="dd/MM/yyyy"/></td>
                                                         <td>${atividade.horaInicio}</td>
-                                                        <td><a href="participarAtividade?id=${atividade.id}"><button class="buttona button1">Participar</button></a>
+                                                         <c:choose>
+                                                         	<c:when test="${atividade.matriculado != 1 }">
+                                                        		<td><a href="participarAtividade?id=${atividade.id}"><button class="buttona button1">Participar</button></a></td>
+                                                   			 </c:when>
+                                                   			 <c:otherwise>
+                                                   			 	<td><button class="buttonb button1">Participar</button></td>
+                                                   			 </c:otherwise>
+                                                         </c:choose>
+                                                        	 
                                                     </tr>
                                                 </c:if>
                                              </c:forEach>
@@ -231,7 +250,7 @@
                         <c:forEach var="atividade" items="${atvsUsuarioLogado}">
                                 <tr>
                                     <th>${atividade.nome}</th>
-                                    <th><button class="buttonb button1">Cancelar</button></th>
+                                    <th><button class="buttonc button1">Cancelar</button></th>
                                 </tr>
                         </c:forEach>
             </table>
