@@ -15,6 +15,14 @@ public class Atividade {
 	private String horaInicio;
 	private String horaTermino;
 	private int limite;
+	private int matriculado;
+	
+	public int getMatriculado() {
+		return matriculado;
+	}
+	public void setMatriculado(int matriculado) {
+		this.matriculado = matriculado;
+	}
 	public int getId() {
 		return id;
 	}
@@ -81,7 +89,5 @@ public class Atividade {
 	public void setLocal(String local) {
 		this.local = local;
 	}
-	
-
-	
+		
 }
