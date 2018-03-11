@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <head>
-
+<c:import url="/view/linkcss.jsp" />
+	<c:import url="../css/css_navbar.jsp" />
 </head>
 <nav class="navbar  navbar-fixed-top navbar-expand-lg "navbar navbar-light" style="background-color: #277554;">
 
@@ -14,12 +15,12 @@
       
        <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-       UsuÃ¡rio
+       Usuário
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Novo usuÃ¡rio</a>
-          <a class="dropdown-item" href="#">Alterar usuÃ¡rio</a>
-          <a class="dropdown-item" href="#">Excluir usuÃ¡rio</a>
+          <a class="dropdown-item" href="#">Novo usuário</a>
+          <a class="dropdown-item" href="#">Alterar usuário</a>
+          <a class="dropdown-item" href="#">Excluir usuário</a>
           
         </div>
       </li>
@@ -37,10 +38,9 @@
         <a class="nav-link" href="#">Nova atividade</a>
       </li>
     </ul>
-   <ul class="nav navbar-nav navbar pull-right" style="height: 30px; margin-top: -10px">
-                  <a href="logout.php"><button class="btn btn-success">Sair</button></a>
-                </li>
-              </ul>
+                  <button class="btn btn-success pull-right" href="logout.php">Sair</button>
+                
+   
   </div>
 </nav>
 </html>
