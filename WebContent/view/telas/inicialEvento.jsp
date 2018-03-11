@@ -17,7 +17,7 @@
         
 </head>
 <body>
-<c:import url="../comum/navbarUsuario.jsp" />
+<c:import url="../comum/navbarAdm.jsp" />
 <br><br><br>
 <div class="container">   
     <div class="row">
