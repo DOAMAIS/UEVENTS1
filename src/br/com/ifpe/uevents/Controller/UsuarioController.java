@@ -32,6 +32,19 @@ public class UsuarioController {
 
 			return "telas/cadasUsuario";
 		}
+	         @RequestMapping("cadasProf")
+		public String cadastroa(){
+			return "telas/cadasProf";
+		}
+		@RequestMapping("inserirProf")
+		public String inserirUsera(Usuario usuario, Model model){
+			UsuarioDao dao = new UsuarioDao();
+			dao.cadastrar(usuario);
+			
+		model.addAttribute("msg", Mensagens.UsuarioCadastradoSucesso);
+
+			return "telas/cadasProf";
+		}
 		
 		@RequestMapping("/home")
 		public String efetuaLogin(Usuario usuario, HttpSession session, Model model) {
