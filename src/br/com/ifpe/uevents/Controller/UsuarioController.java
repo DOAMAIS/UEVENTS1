@@ -126,7 +126,7 @@ public class UsuarioController {
 			return "forward:paginaInicial";
 		}
 	
-		@RequestMapping("/desistirParticipacao")
+		@RequestMapping("/desistir")
 		public String cancelar(Atividade atividade, HttpSession session, Model model){
 
 			Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
