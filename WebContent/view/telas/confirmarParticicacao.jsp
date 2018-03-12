@@ -11,8 +11,8 @@
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="/view/bootstrap/js/bootstrap.min.js"></script>
 
-<c:import url="../comum/navbarUsuario.jsp" />
 <style>
+<!-- Bora tirar esses CSS's daqui -->
 		html, body {
 		  background-color: #FFF;
 		  color: #666;
@@ -69,7 +69,7 @@
 </head>
 
 <body>
-
+<c:import url="../comum/navbarUsuario.jsp" />
 	<div class="container">
  		<div class="widget">
 		  <h1>${atvEscolhida.nome}</h2>
@@ -77,17 +77,17 @@
 		    <div class="left">
 		       <label for="card">Data: <fmt:formatDate value="${atvEscolhida.data}" pattern="dd/MM/yyyy"/></label>
 		       <label for="card"> Horário: ${atvEscolhida.horaInicio}</label>
-		       <label for="card"> Ministrada por:${atvEscolhida.orientador}</label>
+		       <label for="card"> Ministrada por: ${atvEscolhida.orientador}</label>
 		    </div>
 		  </div>
 		  
 		  <div class="row">
 		 
-			    <a class="btn btn-success" href="participacaoConfirmada?id=${atvEscolhida.id}">Confirmar</a> &nbsp;
-			    <a class="btn btn-danger" href="desistirParticipacao">Cancelar</a>
+			    <a class="btn btn-success" href="participacaoConfirmada?id=${atvEscolhida.id}">Confirmar</a> &nbsp; &nbsp;
+			    <a class="btn btn-danger" href="desistir">Cancelar</a>
 		
 		  </div>
-		  <div style="clear:both;"></div>
+		  
 		</div>
 		<br/><br/>
   
@@ -96,3 +96,4 @@
  	<c:import url="/view/linkjs.jsp" />
 </body>
 </html>
+
