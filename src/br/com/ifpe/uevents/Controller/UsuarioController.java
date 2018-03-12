@@ -97,6 +97,35 @@ public class UsuarioController {
 			return "telas/inicialEvento";
 		}
 		
+		@RequestMapping("/cancelarAtividade")
+		public String cancelar(Atividade atividade, Model model){
+			Atividade atvEscolhida = new AtividadeDao().buscarPorId(atividade);
+			model.addAttribute("atvEscolhida", atvEscolhida);
+			return "telas/cancelarParticipacao";
+		}
+		
+		@RequestMapping("/cancelamentoConfirmado")
+		public String cancelarAtividade(Atividade atividade, HttpSession session, Model model){
+			Atividade atvEscolhida = new AtividadeDao().buscarPorId(atividade);
+			model.addAttribute("atvEscolhida", atvEscolhida);
+			Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
+			UsuarioDao dao = new UsuarioDao();
+			dao.removerAtividade(usuarioLogado, atividade);
+			model.addAttribute("msg", "Participação cancelada com sucesso!");
+			
+			//Lista de Eventos
+			List<Evento> listaEventos = new EventoDao().listar();
+			model.addAttribute("listaEventos", listaEventos);
+			//Lista de Atividades
+			List<Atividade> listaAtividades = new AtividadeDao().listarAtividadeUsuario(usuarioLogado);
+			model.addAttribute("listaAtividades", listaAtividades);
+			//Lista de Atividades do UsuÃ¡rio
+			List<Atividade> atvsUsuarioLogado = new UsuarioDao().listarAtvs(usuarioLogado);
+			model.addAttribute("atvsUsuarioLogado", atvsUsuarioLogado);
+	
+			return "forward:paginaInicial";
+		}
+	
 		@RequestMapping("/desistirParticipacao")
 		public String cancelar(Atividade atividade, HttpSession session, Model model){
 
