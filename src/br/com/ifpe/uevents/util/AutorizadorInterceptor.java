@@ -29,6 +29,7 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 				uri.endsWith("removerAtividade") ||
 				uri.endsWith("exibirAlterarEvento") ||
 				uri.endsWith("alterarEvento") ||
+		    		uri.endsWith("excluirEvento") ||
 			    uri.endsWith("home")) {
 			
 			return true;
