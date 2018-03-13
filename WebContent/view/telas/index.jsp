@@ -17,9 +17,9 @@
 <c:import url="../comum/navbar.jsp" />
 	<div class="limiter">
 		<div class="container-login100">
-			<div class="wrap-login100 p-t-40 p-b-20">
+			<div class="wrap-login100 p-t-20 p-b-10">
 				<form action="home" method="post" class="login100-form validate-form">
-					<img src="view/img/logo.png" class="img-fluid">
+					<img src="view/img/logo.png" class="img-fluid" style="height:250px; width:380px; align: center;">
 					<!-- Teste de alerta, qualquer coisa é só tirar -->
 					<c:if test="${msg != null }">
 						<div class="alert alert-danger">
@@ -28,13 +28,13 @@
 					    </div>
 					</c:if>
 					<!-- Teste de alerta, qualquer coisa é só tirar -->
-					<div class="wrap-input100 validate-input m-t-30 m-b-35"
+					<div class="wrap-input100 validate-input m-t-5 m-b-35"
 						data-validate="Enter username">
 						<input class="input100" type="text" name="cpf"> <span
 							class="focus-input100" data-placeholder="CPF"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input m-b-50"
+					<div class="wrap-input100 validate-input m-b-10"
 						data-validate="Enter password">
 						<input class="input100" type="password" name="senha"> <span
 							class="focus-input100" data-placeholder="Senha"></span>
