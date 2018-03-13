@@ -8,10 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import br.com.ifpe.estoque.model.Produto;
+import br.com.ifpe.estoque.model.ProdutoDao;
 import br.com.ifpe.uevents.Dao.AtividadeDao;
 import br.com.ifpe.uevents.Dao.EventoDao;
 import br.com.ifpe.uevents.Model.Atividade;
 import br.com.ifpe.uevents.Model.Evento;
+import br.com.ifpe.uevents.util.Mensagens;
 import br.com.ifpe.uevents.util.Util;
 
 @Controller
@@ -47,6 +50,16 @@ public class EventoController {
 		System.out.println("visualizar");
 		return "telas/visualizarEvento";
 	}
+	
+    @RequestMapping("/removerEventos")
+    public String removerEventos(Evento evento, Model model) {
+
+	EventoDao dao = new EventoDao();
+	dao.remover(evento.getId());
+	model.addAttribute(Mensagens.EvExcluidoSucesso);
+
+	return "telas/InicialEvento";
+    
 	/*
 	 * <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 	 * <c:forEach var="evento" items="${listaEventos}">
