@@ -47,15 +47,15 @@
  <div class="container">
   <div class="widget">
 	<form action="inserirEvento" method="post" enctype="multipart/form-data">
-	  <h2>Alterar Evento</h2>
+	  <h2>Alterar Evento : ${evento.nome}</h2>
 	  <input type="hidden" name="id" value="${e.id}">
 	  
 	  <input type="hidden" name="status" value="ativo"/>
-		<input type="text" class="form-control"  name="nome" value="${e.nome}" /><br/>
+		<input type="text" class="form-control"  name="nome" value="${evento.nome}" /><br/>
 		<input type="file" class="form-control" name="file" accept=".jpeg,.png,.jpg"/><br/>
-		<input type="text" class="form-control" name="dataInicio"    value="${e.dataInicio}" /><br/>
-		<input type="text" class="form-control" name="dataTermino"  value="${e.dataTermino}"/><br/>
-	  	<textarea class="form-control" name="descricao" id="descricao" maxlength="150" onkeydown="restantes(this.id);" value="${e.descricao}"></textarea>
+		<input type="text" class="form-control" name="dataInicio"    value="${evento.dataInicio}" /><br/>
+		<input type="text" class="form-control" name="dataTermino"  value="${evento.dataTermino}"/><br/>
+	  	<textarea class="form-control" name="descricao" id="descricao" maxlength="150" onkeydown="restantes(this.id);" value="${evento.descricao}"></textarea>
 	  	<label align="left" id="i"></label><br>
 	  <a href="alterarEvento"><button class="btn btn-success ">Alterar Evento</button></a>
 
