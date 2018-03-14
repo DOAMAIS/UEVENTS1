@@ -68,6 +68,28 @@ public class EventoController {
 		List<Evento> listaEventos = dao.listar();
 		model.addAttribute("listaEventos", listaEventos);
 		 */
-	}
+		 @RequestMapping("/exibirAlterarEvento")
+    public String exibirAlterarEvento(Evento evento, Model model) {
 
+	EventoDao dao = new EventoDao();
+	Evento eventoCompleto = dao.buscarPorId(evento.getId());
+	model.addAttribute("evento", eventoCompleto);
+
+
+
+	return "telas/alterarEvento";
+    }
+
+    @RequestMapping("/alterarEvento")
+    public String alterarEvento(Evento evento, Model model) {
+
+	EventoDao dao = new EventoDao();
+	dao.alterar(evento);
+	model.addAttribute("msg", "Evento Alterado com Sucesso!");
+	
+
+	return "forward:listaEventos";
+    }
 }
+
+	
