@@ -70,8 +70,24 @@
                                                 <b>${evento.nome}</b>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
                                                  <a href="exibirAlterarEvento"><button class="btn btn-warning "> <span class="glyphicon glyphicon-pencil"></span></button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
-                                                 <a href=""><button class="btn btn-danger"> <span class="glyphicon glyphicon-remove"></span></button></a>
+                                                 <a href=""><button class="btn btn-danger" data-toggle="modal" data-target="#confirm"> <span class="glyphicon glyphicon-remove"></span></button></a>
                                                 <br><hr>
+                                                		<div class="modal fade" id="confirm" role="dialog">
+														  <div class="modal-dialog modal-md">
+														
+														    <div class="modal-content">
+														      <div class="modal-body">
+														            <p> Tem certeza que gostaria que excluir evento?</p>
+														      </div>
+														      <div class="modal-footer">
+														        <a href="wfefwe" type="button" class="btn btn-danger" id="delete">Sim</a>
+														            <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
+														      </div>
+														    </div>
+														
+														  </div>
+														</div>
+                                                	
                                                 <p style="color:black;">${evento.descricao}</p>
                                                
                                       </div>
