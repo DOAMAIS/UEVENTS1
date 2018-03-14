@@ -24,6 +24,12 @@ public class EventoController {
 		System.out.println("Cadastro Evento");
 		return "telas/cadasEvento";
 	}
+	
+	@RequestMapping("telaAdm")
+	public String exibira(){
+		System.out.println("Cadastro Evento");
+		return "telas/inicialAdm";
+	}
 
 
 	@RequestMapping("inserirEvento")
