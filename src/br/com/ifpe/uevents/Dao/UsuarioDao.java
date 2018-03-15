@@ -76,7 +76,6 @@ public class UsuarioDao {
 				 
 	 }
 	 
-	//<button href="página?id=${atividade.id}"></button>
 	 public void participarAtividade(Usuario usuario, Atividade atividade){
 		PreparedStatement stmt;
 		String sql = "INSERT INTO usuario_has_atividade (id_atividade, id_usuario) values(?,?);";
@@ -91,6 +90,21 @@ public class UsuarioDao {
 			throw new RuntimeException(e);
 		}
 	 }
+	 
+	 public void removerAtividade(Usuario usuario, Atividade atividade){
+			PreparedStatement stmt;
+			String sql = "DELETE FROM usuario_has_atividade WHERE id_atividade = ? AND id_usuario = ?;";
+			try{
+				stmt = connection.prepareStatement(sql);
+				stmt.setInt(1, atividade.getId());
+				stmt.setInt(2, usuario.getId());
+
+				stmt.execute();
+				connection.close();
+			}catch(SQLException e){
+				throw new RuntimeException(e);
+			}
+	}
 	
 	 public List<Atividade> listarAtvs(Usuario usuario){
 		
