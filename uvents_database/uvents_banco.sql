@@ -72,10 +72,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `uvents`.`usuario` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `cpf` VARCHAR(255) NOT NULL,
+  `cpf` VARCHAR(15) NOT NULL,
   `email` VARCHAR(100) NOT NULL,
   `nome` VARCHAR(100) NOT NULL,
-  `senha` VARCHAR(500) NOT NULL,
+  `senha` VARCHAR(255) NOT NULL,
   `id_tipo_usuario` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_usuario_tipo_usuario1_idx` (`id_tipo_usuario` ASC),
@@ -112,14 +112,16 @@ INSERT INTO tipo_usuario (id, descricao) values(1, "convidado");
 INSERT INTO tipo_usuario (id, descricao) values(2, "aluno");
 INSERT INTO tipo_usuario (id, descricao) values(3, "professor");
 
--- INSERTS DEFAULT mo vei
+-- Usuário ADM -- A senha é 123 ---
+INSERT INTO `usuario` VALUES (1, 54321, 'adm@gmail.com', 'Administrador', 'A665A45920422F9D417E4867EFDC4FB8A04A1F3FFF1FA07E998E86F7F7A27AE3', 2);
 
 INSERT INTO `evento` VALUES (1,null,"Missa Dominical",'2018-12-11','2018-12-11','Deus te abençoe','ativo'),
                             (2,NULL,'Semana de Tecnologia','2018-09-11','2018-09-18','Várias palestras','ativo');
                             
 INSERT INTO `atividade` VALUES (1,1,'Oração Inicial','Edmarcos','Capela Ns. Senhora','2018-12-12','12:00:00','12:15:00','Benção na sua vida','Tudo certo',500),
-                                (2,2,'Palestra - Arroz com feijão','Prof° Zé Doido','Sala 2','2018-02-27','11:00:00','12:00:00','Amanhã','kkk',45);
-
+							   (2,1,'Comunhão','Padre Bento','Capela Ns. Senhora','2018-12-12','12:15:00','12:50:00','Corpo de Cristo','Amém!',500),
+							   (3,2,'Palestra - Arroz com feijão','Prof° Zé Doido','Sala 2','2018-02-27','11:00:00','12:00:00','Amanhã','kkk',45);
+                               
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
