@@ -17,20 +17,20 @@
         
 </head>
 <body>
-<c:import url="../comum/navbarAdm.jsp" />
+<c:import url="../comum/navbarUsuario.jsp" />
 <br><br><br>
 <div class="container">   
     <div class="row">
         <div class="col-md-6 col-md-offset-3 p-t-30">
             <!-- Nav tabs category -->
             <div class="center"><h1>Bem vindo, ${usuarioLogado.nome}!</h1></div>
-            <!-- Teste de alerta, qualquer coisa é só tirar -->
+            <!-- Teste de alerta, qualquer coisa é só tirar Ass: Ed -->
 	    <c:if test="${msg != null }">
 		<div class="alert alert-success">
-		  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-		  <span><strong> Parabéns:</strong> ${msg} </span>
+		    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+	            <span><strong> Parabéns:</strong> ${msg} </span>
 		</div>
-	    c:if>
+	    </c:if>
             <ul class="nav nav-tabs faq-cat-tabs">
                 <li class="active"><a href="#faq-cat-1" data-toggle="tab">Eventos</a></li>
                 <li><a href="#faq-catative-2" data-toggle="tab">Atividades</a></li>
@@ -87,10 +87,10 @@
                                                          <c:choose>
                                                          	<c:when test="${atividade.matriculado != 1 }">
                                                         		<td><a href="participarAtividade?id=${atividade.id}"><button class="btn btn-success">Participar</button></a></td>
-                                                   		</c:when>
-                                                   	        <c:otherwise>
-                                                   			<td><button class="btn btn-secondary" style="width:91px;" disabled="disabled">Participar</button></td>
-                                                   	        </c:otherwise>
+                                                   			 </c:when>
+                                                   			 <c:otherwise>
+                                                   			 	<td><button class="btn btn-secondary" style="width:91px;" disabled="disabled">Participar</button></td>
+                                                   			 </c:otherwise>
                                                          </c:choose>
                                                         	 
                                                     </tr>
@@ -119,18 +119,18 @@
                             <div id="faq-catative-2-sub-1" class="panel-collapse collapse">
                                 <div class="panel-body">
                                 <div id="Atividades">
-				    <table class="table table-striped custab">
-					<c:forEach var="atividadeUsu" items="${listaAtividades}">
-					    <c:if test="${atividadeUsu.matriculado == 1}">
-					         <tr>
-					             <th>${atividadeUsu.nome}</th>
-					             <th>
-					                 <a href="cancelarAtividade?id=${atividadeUsu.id}"><button class="btn btn-danger">Cancelar</button></a>
-					             </th>
-					         </tr>
-					     </c:if>
-					 </c:forEach>
-				    </table>
+					            <table class="table table-striped custab">
+					            	<c:forEach var="atividadeUsu" items="${listaAtividades}">
+					                	<c:if test="${atividadeUsu.matriculado == 1}">
+					                       <tr>
+					                           <th>${atividadeUsu.nome}</th>
+					                           <th>
+					                              <a href="cancelarAtividade?id=${atividadeUsu.id}"><button class="btn btn-danger">Cancelar</button></a>
+					                           </th>
+					                       </tr>
+					                	</c:if>
+					            	</c:forEach>
+					            </table>
                                 </div>
                             </div>
                         </div>
