@@ -118,4 +118,35 @@ public class EventoDao {
 				throw new RuntimeException(e);
 			}
 		}
-}
+	
+                    public Evento buscarPorId(int id) {
+
+				try {
+
+				    Evento evento = new Evento();
+				    PreparedStatement stmt = connection.prepareStatement("SELECT * FROM evento WHERE id = ?");
+				    stmt.setInt(1, id);
+				    ResultSet rs = stmt.executeQuery();
+
+				    while (rs.next()) {
+
+				    	evento.setId(rs.getInt("id"));
+						evento.setNome(rs.getString("nome_evento"));
+						evento.setDescricao(rs.getString("descricao_evento"));
+						evento.setDataInicio(rs.getDate("data_inicio"));
+						evento.setDataTermino(rs.getDate("data_termino"));
+						evento.setStatus(rs.getString("status"));
+						evento.setFoto(rs.getString("foto_evento"));
+				    }
+
+				    rs.close();
+				    stmt.close();
+				    connection.close();
+
+				    return evento;
+
+				} catch (SQLException e) {
+				    throw new RuntimeException(e);
+				}
+			    }
+			}
