@@ -150,89 +150,119 @@ public class AtividadeDao {
 		return listaAtividades;
 	}
 	
-public List<Atividade> listarAtividadeUsuario(Usuario usuario){
-		
-		List<Atividade> listaAtividades = new ArrayList<>();
-		ResultSet rs;
-		PreparedStatement stmt;
-		String sql = "SELECT * FROM atividade";
-		
-		try{
-			stmt = connection.prepareStatement(sql);
-			rs = stmt.executeQuery();
+	public List<Atividade> listarAtividadeUsuario(Usuario usuario){
+			//select usuario_has_atividade.id_atividade, atividade.nome_atividade, usuario_has_atividade.id_usuario, usuario.nome from usuario_has_atividade, usuario, atividade WHERE usuario_has_atividade.id_atividade = atividade.id and usuario_has_atividade.id_usuario=usuario.id and usuario.id=6;
+			List<Atividade> listaAtividades = new ArrayList<>();
+			ResultSet rs;
+			PreparedStatement stmt;
+			String sql = "SELECT * FROM atividade";
 			
-			while(rs.next()){
-				Atividade atv = new Atividade();
+			try{
+				stmt = connection.prepareStatement(sql);
+				rs = stmt.executeQuery();
 				
-				atv.setId(rs.getInt("id"));
-				atv.setNome(rs.getString("nome_atividade"));
-				atv.setDescricao(rs.getString("descricao_atividade"));
-				atv.setData(rs.getDate("data_atividade"));
-				atv.setHoraInicio(rs.getString("hora_inicio").substring(0, 5));
-				atv.setHoraTermino(rs.getString("hora_termino").substring(0, 5));
-				atv.setOrientador(rs.getString("orientador"));
-				atv.setLocal(rs.getString("local"));
-				atv.setLimite(rs.getInt("limite"));
-				atv.setId_evento(rs.getInt("id_evento"));
-				atv.setMatriculado(retornaUsuariomatriculado(rs.getInt("id"),usuario));
+				while(rs.next()){
+					Atividade atv = new Atividade();
+					
+					atv.setId(rs.getInt("id"));
+					atv.setNome(rs.getString("nome_atividade"));
+					atv.setDescricao(rs.getString("descricao_atividade"));
+					atv.setData(rs.getDate("data_atividade"));
+					atv.setHoraInicio(rs.getString("hora_inicio").substring(0, 5));
+					atv.setHoraTermino(rs.getString("hora_termino").substring(0, 5));
+					atv.setOrientador(rs.getString("orientador"));
+					atv.setLocal(rs.getString("local"));
+					atv.setLimite(rs.getInt("limite"));
+					atv.setId_evento(rs.getInt("id_evento"));
+					atv.setMatriculado(retornaUsuariomatriculado(rs.getInt("id"),usuario));
+					
+					listaAtividades.add(atv);
+				}
 				
-				listaAtividades.add(atv);
+				rs.close();
+				connection.close();
+				stmt.close();
+			}catch(SQLException e){
+				throw new RuntimeException(e);
 			}
 			
-			rs.close();
-			connection.close();
-			stmt.close();
-		}catch(SQLException e){
-			throw new RuntimeException(e);
+			return listaAtividades;
 		}
-		
-		return listaAtividades;
-	}
 	
-	public int retornaUsuariomatriculado(int idatividade,Usuario usuario) {
-		
-		ResultSet rs;
-		PreparedStatement stmt;
-		String sql = "SELECT * FROM usuario_has_atividade where id_atividade=? and id_usuario=?";
-		
-		try{
-			stmt = connection.prepareStatement(sql);
-			stmt.setInt(1,idatividade);
-			stmt.setInt(2,usuario.getId() );
-			rs = stmt.executeQuery();
-			while(rs.next()){
-				return 1;
+		public int retornaUsuariomatriculado(int idatividade,Usuario usuario) {
+			
+			ResultSet rs;
+			PreparedStatement stmt;
+			String sql = "SELECT * FROM usuario_has_atividade where id_atividade=? and id_usuario=?";
+			
+			try{
+				stmt = connection.prepareStatement(sql);
+				stmt.setInt(1,idatividade);
+				stmt.setInt(2,usuario.getId() );
+				rs = stmt.executeQuery();
+				while(rs.next()){
+					return 1;
+				}
+				
+				
+				
+				rs.close();
+				stmt.close();
+			}catch(SQLException e){
+				throw new RuntimeException(e);
 			}
 			
 			
+			return 0;
 			
-			rs.close();
-			stmt.close();
-		}catch(SQLException e){
-			throw new RuntimeException(e);
 		}
 		
-		
-		return 0;
-		
-	}
-	
-	public void remover(Atividade atividade){
-		
-		PreparedStatement stmt;
-		String sql = "DELETE FROM atividade WHERE id=?";
-		
-		try{
-			stmt = connection.prepareStatement(sql);
+		public List<Usuario> listarUsuariosParticipantes(Atividade atv) {
 			
-			stmt.setInt(1, atividade.getId());
-	
+			ResultSet rs;
+			PreparedStatement stmt;
+			String sql = "SELECT usuario_has_atividade.id_usuario, usuario.nome FROM usuario_has_atividade, usuario, atividade WHERE usuario_has_atividade.id_usuario = usuario.id and usuario_has_atividade.id_atividade=atividade.id and atividade.id=?;";
+			List<Usuario> listaUsuarios = new ArrayList<>();
 			
-			stmt.execute();
-			connection.close();
-		}catch(SQLException e){
-			throw new RuntimeException(e);
+			try{
+				stmt = connection.prepareStatement(sql);
+				stmt.setInt(1, atv.getId());
+
+				rs = stmt.executeQuery();
+				while(rs.next()){
+					Usuario user = new Usuario();
+					
+					user.setId(rs.getInt("id_usuario"));
+					user.setNome(rs.getString("nome"));
+					
+					listaUsuarios.add(user);
+				}
+				
+				rs.close();
+				stmt.close();
+			}catch(SQLException e){
+				throw new RuntimeException(e);
+			}
+			return listaUsuarios;
+			
 		}
-	}
+				
+		public void remover(Atividade atividade){
+			
+			PreparedStatement stmt;
+			String sql = "DELETE FROM atividade WHERE id=?";
+			
+			try{
+				stmt = connection.prepareStatement(sql);
+				
+				stmt.setInt(1, atividade.getId());
+		
+				
+				stmt.execute();
+				connection.close();
+			}catch(SQLException e){
+				throw new RuntimeException(e);
+			}
+		}
 		
 }
