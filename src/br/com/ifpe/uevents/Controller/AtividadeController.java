@@ -10,6 +10,7 @@ import br.com.ifpe.uevents.Dao.AtividadeDao;
 import br.com.ifpe.uevents.Dao.EventoDao;
 import br.com.ifpe.uevents.Model.Atividade;
 import br.com.ifpe.uevents.Model.Evento;
+import br.com.ifpe.uevents.util.Mensagens;
 
 @Controller
 public class AtividadeController {
@@ -33,4 +34,32 @@ public class AtividadeController {
 		return "forward:cadasAtividade";
 	}
 
+	@RequestMapping("alterarAtividade")
+	public String exibirAlterar(Atividade atv, Model model){
+		
+		Atividade atividade = new AtividadeDao().buscarPorId(atv);
+		model.addAttribute("atividade", atividade);
+		List<Evento> listaEventos = new EventoDao().listar();
+		model.addAttribute("lista", listaEventos);
+		
+		System.out.println("Alterar Atividade");
+		return "telas/alterarAtividade";
+	}
+	
+	@RequestMapping("alteracaoEfetuada")
+	public String altaAtividade(Atividade atv, Model model){
+
+		AtividadeDao dao = new AtividadeDao();
+		dao.alterar(atv);
+		model.addAttribute("msg", Mensagens.AtvAlteradoSucesso);
+		return "forward:paginaInicial";
+	}
+	
+	@RequestMapping("/removerAtividade")
+	public String removerAtividade(Atividade atv, Model model){
+		new AtividadeDao().remover(atv);
+		model.addAttribute("msg", Mensagens.AtvExcluidoSucesso);
+		
+		return "forward:paginaInicial";
+	}
 }
