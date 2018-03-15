@@ -13,24 +13,11 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 		
 		String uri = request.getRequestURI();
 		if (uri.contains("bootstrap") || 
-				String uri = request.getRequestURI();
-		if (uri.contains("bootstrap") || 
-				uri.contains("css") || 
-				uri.contains("vendor")|| 
-				uri.contains("fonts") || 
-				uri.contains("img") || 
-				uri.contains("js") || 
-				uri.endsWith("uevents/")|| 
-				uri.endsWith("cadasUsuario") || 
-		    	        uri.endsWith("inserirUsuario") || 
-				uri.endsWith("visualizarEventos") ||
-				uri.endsWith("telaAdm") ||
-				uri.endsWith("alterarAtv") ||
-				uri.endsWith("removerAtividade") ||
-				uri.endsWith("exibirAlterarEvento") ||
-				uri.endsWith("alterarEvento") ||
-		    		uri.endsWith("excluirEvento") ||
-			    uri.endsWith("home")) {
+			uri.endsWith("uevents/")|| 
+			uri.endsWith("cadasUsuario") || 
+		    uri.endsWith("inserirUsuario") || 
+			uri.endsWith("visualizarEventos") ||
+			uri.endsWith("home")) {
 			
 			return true;
 		}
