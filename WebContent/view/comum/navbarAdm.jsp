@@ -15,12 +15,12 @@
       
        <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-       Usuário
+       UsuÃ¡rio
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Novo usuário</a>
-          <a class="dropdown-item" href="#">Alterar usuário</a>
-          <a class="dropdown-item" href="#">Excluir usuário</a>
+          <a class="dropdown-item" href="#">Novo usuÃ¡rio</a>
+          <a class="dropdown-item" href="#">Alterar usuÃ¡rio</a>
+          <a class="dropdown-item" href="#">Excluir usuÃ¡rio</a>
           
         </div>
       </li>
@@ -38,7 +38,7 @@
         <a class="nav-link" href="#">Nova atividade</a>
       </li>
     </ul>
-                  <button class="btn btn-success pull-right" href="logout.php">Sair</button>
+            <a href="logout"><button class="btn btn-success pull-right">Sair</button></a>
                 
    
   </div>
