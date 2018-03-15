@@ -23,7 +23,7 @@
 		</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right" >
-				<li><a class="navbar-brand" href="voltaHome">Home</a> </li>	
+				<li><a class="navbar-brand" href="desistir">Home</a> </li>	
 			</ul> 
 			    
 		</div><!-- /.navbar-collapse -->
