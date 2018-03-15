@@ -9,11 +9,11 @@
 <c:if test="${msg != null}">
 	<meta http-equiv="Refresh" content="3;url=http://localhost:8080/uevents/">
 </c:if>
-<title>UEVENTS</title>
+<title>Cadastre-se</title>
 <c:import url="/view/linkcss.jsp" />
 </head>
 <body>
-<script type="text/javascript">
+  <script type="text/javascript">
       function verificaSenha(){
     	var senha = document.getElementById("senha");
         var confSenha = document.getElementById("confSenha");
