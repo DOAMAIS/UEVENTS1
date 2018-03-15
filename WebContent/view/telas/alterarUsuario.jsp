@@ -27,6 +27,8 @@
 						      <span><strong> Parabéns:</strong> ${msg} </span>
 						</div>
 					</c:if>
+					<input type="hidden" name="idTipoUsuario" value="${usuarioLogado.idTipoUsuario}">
+					
 					<div class="wrap-input100 validate-input m-b-35" data-validate = "Enter matriculation">
 						<input class="input100" type="text" name="nome" value="${usuario.nome }">
 						<span class="focus-input100" data-placeholder="Nome"></span>
