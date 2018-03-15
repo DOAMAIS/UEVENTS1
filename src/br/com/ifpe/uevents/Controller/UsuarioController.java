@@ -28,11 +28,12 @@ public class UsuarioController {
 			UsuarioDao dao = new UsuarioDao();
 			dao.cadastrar(usuario);
 			
-		model.addAttribute("msg", Mensagens.UsuarioCadastradoSucesso);
-
+			model.addAttribute("msg", Mensagens.UsuarioCadastradoSucesso);
+	
 			return "telas/cadasUsuario";
 		}
-	         @RequestMapping("cadasProf")
+		
+		@RequestMapping("cadasProf")
 		public String cadastroa(){
 			return "telas/cadasProf";
 		}
@@ -40,78 +41,15 @@ public class UsuarioController {
 		public String inserirUsera(Usuario usuario, Model model){
 			UsuarioDao dao = new UsuarioDao();
 			dao.cadastrar(usuario);
-			
-		model.addAttribute("msg", Mensagens.UsuarioCadastradoSucesso);
+			model.addAttribute("msg", Mensagens.UsuarioCadastradoSucesso);
 
 			return "telas/cadasProf";
 		}
-		
-		@RequestMapping("/home")
-		public String efetuaLogin(Usuario usuario, HttpSession session, Model model) {
-			UsuarioDao dao = new UsuarioDao();
-			Usuario usuarioLogado = dao.buscarUsuario(usuario);
-			if (usuarioLogado != null) {
-				//Lista de Eventos
-				List<Evento> listaEventos = new EventoDao().listar();
-				model.addAttribute("listaEventos", listaEventos);
-				//Lista de Atividades
-				List<Atividade> listaAtividades = new AtividadeDao().listarAtividadeUsuario(usuarioLogado);
-				model.addAttribute("listaAtividades", listaAtividades);
-				//Lista de Atividades do Usuario
-				List<Atividade> atvsUsuarioLogado = new UsuarioDao().listarAtvs(usuarioLogado);
-				model.addAttribute("atvsUsuarioLogado", atvsUsuarioLogado);
-	
-				session.setAttribute("usuarioLogado", usuarioLogado);
-			    return "telas/inicialEvento";
-			}
-			model.addAttribute("msg", Mensagens.UsuarioSenhaInvalido);
-			return "telas/index";
-		}
 
-		@RequestMapping("/participarAtividade")
-		public String participarK(Atividade atividade, Model model){
-			Atividade atvEscolhida = new AtividadeDao().buscarPorId(atividade);
-			model.addAttribute("atvEscolhida", atvEscolhida);
-			return "telas/confirmarParticicacao";
-		}
-		
-		@RequestMapping("/participacaoConfirmada")
-		public String participar(Atividade atividade, HttpSession session, Model model){
-			Atividade atvEscolhida = new AtividadeDao().buscarPorId(atividade);
-			model.addAttribute("atvEscolhida", atvEscolhida);
-			Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
-			UsuarioDao dao = new UsuarioDao();
-			dao.participarAtividade(usuarioLogado, atividade);
-			model.addAttribute("msg", Mensagens.ParticipacaoConfirmada);
+		@RequestMapping("/paginaInicial")
+		public String homepage(HttpSession session, Model model){
 			
-			//Lista de Eventos
-			List<Evento> listaEventos = new EventoDao().listar();
-			model.addAttribute("listaEventos", listaEventos);
-			//Lista de Atividades
-			List<Atividade> listaAtividades = new AtividadeDao().listarAtividadeUsuario(usuarioLogado);
-			model.addAttribute("listaAtividades", listaAtividades);
-			//Lista de Atividades do Usuário
-			List<Atividade> atvsUsuarioLogado = new UsuarioDao().listarAtvs(usuarioLogado);
-			model.addAttribute("atvsUsuarioLogado", atvsUsuarioLogado);
-	
-			return "telas/inicialEvento";
-		}
-		
-		@RequestMapping("/cancelarAtividade")
-		public String cancelar(Atividade atividade, Model model){
-			Atividade atvEscolhida = new AtividadeDao().buscarPorId(atividade);
-			model.addAttribute("atvEscolhida", atvEscolhida);
-			return "telas/cancelarParticipacao";
-		}
-		
-		@RequestMapping("/cancelamentoConfirmado")
-		public String cancelarAtividade(Atividade atividade, HttpSession session, Model model){
-			Atividade atvEscolhida = new AtividadeDao().buscarPorId(atividade);
-			model.addAttribute("atvEscolhida", atvEscolhida);
 			Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
-			UsuarioDao dao = new UsuarioDao();
-			dao.removerAtividade(usuarioLogado, atividade);
-			model.addAttribute("msg", "Participação cancelada com sucesso!");
 			
 			//Lista de Eventos
 			List<Evento> listaEventos = new EventoDao().listar();
@@ -122,47 +60,87 @@ public class UsuarioController {
 			//Lista de Atividades do UsuÃ¡rio
 			List<Atividade> atvsUsuarioLogado = new UsuarioDao().listarAtvs(usuarioLogado);
 			model.addAttribute("atvsUsuarioLogado", atvsUsuarioLogado);
+			
+			if(usuarioLogado.getId() == 1){
+				return "telas/inicialAdm";
+			}
+			
+			return "telas/inicialEvento";
+		}
+		
+		@RequestMapping("/home")
+		public String efetuaLogin(Usuario usuario, HttpSession session, Model model) {
+			UsuarioDao dao = new UsuarioDao();
+			Usuario usuarioLogado = dao.buscarUsuario(usuario);
+			if (usuarioLogado != null) {
+				session.setAttribute("usuarioLogado", usuarioLogado);
+			    return "forward:paginaInicial";
+			}
+			model.addAttribute("msg", Mensagens.UsuarioSenhaInvalido);
+			return "telas/index";
+		}
+
+		@RequestMapping("/participarAtividade")
+		public String exibirParticiparAtividade(Atividade atividade, Model model){
+			Atividade atvEscolhida = new AtividadeDao().buscarPorId(atividade);
+			model.addAttribute("atvEscolhida", atvEscolhida);
+			return "telas/confirmarParticicacao";
+		}
+		
+		@RequestMapping("/cancelarAtividade")
+		public String cancelar(Atividade atividade, Model model){
+			Atividade atvEscolhida = new AtividadeDao().buscarPorId(atividade);
+			model.addAttribute("atvEscolhida", atvEscolhida);
+			return "telas/cancelarParticipacao";
+		}
+		
+		@RequestMapping("/participacaoConfirmada")
+		public String participar(Atividade atividade, HttpSession session, Model model){
+			Atividade atvEscolhida = new AtividadeDao().buscarPorId(atividade);
+			model.addAttribute("atvEscolhida", atvEscolhida);
+			Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
+			UsuarioDao dao = new UsuarioDao();
+			dao.participarAtividade(usuarioLogado, atividade);
+			model.addAttribute("msg", Mensagens.ParticipacaoConfirmada);
 	
 			return "forward:paginaInicial";
 		}
+		
+		@RequestMapping("/cancelamentoConfirmado")
+		public String cancelarAtividade(Atividade atividade, HttpSession session, Model model){
+			Atividade atvEscolhida = new AtividadeDao().buscarPorId(atividade);
+			model.addAttribute("atvEscolhida", atvEscolhida);
+			Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
+			UsuarioDao dao = new UsuarioDao();
+			dao.removerAtividade(usuarioLogado, atividade);
+			model.addAttribute("msg", Mensagens.ParticipacaoCancelada);
 	
+			return "forward:paginaInicial";
+		}
+		
 		@RequestMapping("/desistir")
 		public String cancelar(Atividade atividade, HttpSession session, Model model){
-
-			Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
-		
-			model.addAttribute("msg", Mensagens.ParticipacaoCancelada);
-			
-			//Lista de Eventos
-			List<Evento> listaEventos = new EventoDao().listar();
-			model.addAttribute("listaEventos", listaEventos);
-			//Lista de Atividades
-			List<Atividade> listaAtividades = new AtividadeDao().listarAtividadeUsuario(usuarioLogado);
-			model.addAttribute("listaAtividades", listaAtividades);
-			//Lista de Atividades do Usuário
-			List<Atividade> atvsUsuarioLogado = new UsuarioDao().listarAtvs(usuarioLogado);
-			model.addAttribute("atvsUsuarioLogado", atvsUsuarioLogado);
-	
-			return "telas/inicialEvento";
+			return "forward:paginaInicial";
 		}
+		
+		/*@RequestMapping("/gerarAta")
+		public String gerarAta(Atividade atividade, Model model) throws IOException, DocumentException{
+			HtmlToPdf.createPdf(Util.geraSalt()+"ATA-DA-ATV.pdf", atividade);
+			model.addAttribute("msg", "Ata gerada com sucesso");
+			return "telas/";
+		}*/
+
 		@RequestMapping("/exibirAlterarUsuario")
-	    public String exibirAlterarUsuario(Usuario Usuario, Model model,HttpSession session) {
-		UsuarioDao dao = new UsuarioDao();
-		Usuario usu = (Usuario) session.getAttribute("usuarioLogado");
-		model.addAttribute("usuario", usu);
-		return "telas/alterarUsuario";
-	    }
+		public String exibirAlterarUsuario() {
+			return "telas/alterarUsuario";
+		}
 		@RequestMapping("/alterarUsuario")
-	    public String alterarUsuario(Usuario Usuario, Model model) {	
-		UsuarioDao dao = new UsuarioDao();
-		dao.alterar(Usuario);
-		model.addAttribute("msg", "Usuario Alterado com Sucesso!");
-		return "forward:home";
-	    }
-		@RequestMapping("voltaHome")
-	       public String voltaHome(){
-			return "telas/inicialEvento";
-}
+	        public String alterarUsuario(Usuario Usuario, Model model) {	
+			UsuarioDao dao = new UsuarioDao();
+			dao.alterar(Usuario);
+			model.addAttribute("msg", Mensagens.UsuarioAterado);
+			return "forward:paginaInicial";
+	    	}
 		
 		 @RequestMapping("/logout")
 		 public String logout(HttpSession session) {
