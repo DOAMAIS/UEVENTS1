@@ -10,14 +10,14 @@
     <c:import url="/view/linkcss.jsp" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/view/bootstrap/css/bootstrap.min.css">
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="/view/bootstrap/js/bootstrap.min.js"></script>
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
      <meta name="viewport" content="width=device-width, initial-scale=1">
-     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    
 
 
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -31,7 +31,14 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <!-- Nav tabs category -->
-            <div class="center"><h1>Bem vindo !</h1></div>
+            <div class="center"><h1>Bem vindo, ${usuarioLogado.nome}!</h1></div>
+            <!-- Teste de alerta, qualquer coisa é só tirar Ass: Ed -->
+			<c:if test="${msg != null }">
+				<div class="alert alert-success">
+			       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+				   <span><strong> Parabéns:</strong> ${msg} </span>
+				</div>
+			</c:if>
             <ul class="nav nav-tabs faq-cat-tabs">
                 <li class="active"><a href="#faq-cat-1" data-toggle="tab">Eventos</a></li>
                
@@ -68,9 +75,14 @@
                                           </c:choose>
                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <b>${evento.nome}</b>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                 <a href="exibirAlterarEvento?id=${evento.id}"><button class="btn btn-warning "> <span class="glyphicon glyphicon-pencil"></span></button></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                 <a href=""><button class="btn btn-danger" data-toggle="modal" data-target="#confirm"> <span class="glyphicon glyphicon-remove"></span></button></a>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                 <a href="alterarEvento?id=${evento.id}"><button class="btn btn-warning "> <span class="glyphicon glyphicon-pencil"></span></button></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                 <a href="removerEvento"><button class="btn btn-danger" data-toggle="modal" data-target="#confirm"> <span class="glyphicon glyphicon-remove"></span></button></a>
                                                 <br><hr>
                                                 		<div class="modal fade" id="confirm" role="dialog">
 														  <div class="modal-dialog modal-md">
@@ -89,7 +101,6 @@
 														</div>
                                                 	
                                                 <p style="color:black;">${evento.descricao}</p>
-                                               
                                                
                                       </div>
                                                 <hr id="q"> 
@@ -111,8 +122,8 @@
                                                         <td><fmt:formatDate value="${atividade.data}" pattern="dd/MM/yyyy"/></td>
                                                         <td>${atividade.horaInicio}</td>
                                                         <td><a href=""><button class="btn btn-info">Gerar ata</button></a>
-                                                        <td><a href="alterarAtv"><button class="btn btn-warning "> <span class="glyphicon glyphicon-pencil"></span></button></a>
-                                                        <td><a href="removerAtividade"><button class="btn btn-danger"> <span class="glyphicon glyphicon-remove"></span></button></a>
+                                                        <td><a href="alterarAtividade?id=${atividade.id}"><button class="btn btn-warning "> <span class="glyphicon glyphicon-pencil"></span></button></a>
+                                                        <td><a href="removerAtividade?id=${atividade.id}"><button class="btn btn-danger"> <span class="glyphicon glyphicon-remove"></span></button></a>
                                                     </tr>
                                                 </c:if>
                                              </c:forEach>
