@@ -149,7 +149,7 @@ public class UsuarioDao {
 
 	 public void alterar(Usuario usuario){		
 		PreparedStatement stmt;
-		String sql = "UPDATE usuario SET cpf=?, email=?, nome=?, senha=? WHERE id=?";
+		String sql = "UPDATE usuario SET cpf=?, email=?, nome=?, senha=?,id_tipo_usuario=? WHERE id=?";
 		try{
 			stmt = connection.prepareStatement(sql);			
 			stmt.setString(1, usuario.getCpf());
