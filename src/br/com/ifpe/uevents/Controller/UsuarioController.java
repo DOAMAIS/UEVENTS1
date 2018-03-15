@@ -131,16 +131,33 @@ public class UsuarioController {
 		}*/
 
 		@RequestMapping("/exibirAlterarUsuario")
-		public String exibirAlterarUsuario() {
-			return "telas/alterarUsuario";
-		}
+	    public String exibirAlterarUsuario(Usuario Usuario, Model model,HttpSession session) {
+		UsuarioDao dao = new UsuarioDao();
+		Usuario usu = (Usuario) session.getAttribute("usuarioLogado");
+		model.addAttribute("usuario", usu);
+		return "telas/alterarUsuario";
+	    }
 		@RequestMapping("/alterarUsuario")
-	        public String alterarUsuario(Usuario Usuario, Model model) {	
-			UsuarioDao dao = new UsuarioDao();
-			dao.alterar(Usuario);
-			model.addAttribute("msg", Mensagens.UsuarioAterado);
-			return "forward:paginaInicial";
-	    	}
+	    public String alterarUsuario(Usuario Usuario, Model model) {	
+		UsuarioDao dao = new UsuarioDao();
+		dao.alterar(Usuario);
+		model.addAttribute("msg", "Usuario Alterado com Sucesso!");
+		return "forward:home";
+	    }
+	@RequestMapping("voltaHome")
+	       public String voltaHome(HttpSession session, Model model){	
+			Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
+			//Lista de Eventos
+			List<Evento> listaEventos = new EventoDao().listar();
+			model.addAttribute("listaEventos", listaEventos);
+			//Lista de Atividades
+			List<Atividade> listaAtividades = new AtividadeDao().listarAtividadeUsuario(usuarioLogado);
+			model.addAttribute("listaAtividades", listaAtividades);
+			//Lista de Atividades do UsuÃ¡rio
+			List<Atividade> atvsUsuarioLogado = new UsuarioDao().listarAtvs(usuarioLogado);
+			model.addAttribute("atvsUsuarioLogado", atvsUsuarioLogado);
+			return "telas/inicialEvento";
+}
 		
 		 @RequestMapping("/logout")
 		 public String logout(HttpSession session) {
