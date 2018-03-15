@@ -57,7 +57,7 @@
 		<input type="text" class="form-control" name="dataTermino"  value="${evento.dataTermino}"/><br/>
 	  	<textarea class="form-control" name="descricao" id="descricao" maxlength="150" onkeydown="restantes(this.id);" value="${evento.descricao}"></textarea>
 	  	<label align="left" id="i"></label><br>
-	  <button class="btn btn-success">Alterar Evento</button></a>
+	    <a href="alterarEvento"><button class="btn btn-success ">Alterar Evento</button></a>  
 
 	</form>
    </div>		
