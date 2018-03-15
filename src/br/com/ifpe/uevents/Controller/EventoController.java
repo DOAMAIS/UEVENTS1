@@ -26,10 +26,16 @@ public class EventoController {
 	}
 	
 	@RequestMapping("telaAdm")
-	public String exibira(){
-		System.out.println("Cadastro Evento");
+	public String visualizara(Model model){
+		EventoDao dao = new EventoDao();
+		List<Evento> listaEventos = dao.listar();
+		model.addAttribute("listaEventos", listaEventos);
+		List<Atividade> listaAtividades = new AtividadeDao().listar();
+		model.addAttribute("listaAtividades", listaAtividades);
+		System.out.println("visualizar");
 		return "telas/inicialAdm";
 	}
+	
 
 
 	@RequestMapping("inserirEvento")
