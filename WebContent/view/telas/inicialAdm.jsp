@@ -69,7 +69,7 @@
                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <b>${evento.nome}</b>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                 <a href="exibirAlterarEvento?${evento.id}"><button class="btn btn-warning "> <span class="glyphicon glyphicon-pencil"></span></button></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                 <a href="exibirAlterarEvento?id=${evento.id}"><button class="btn btn-warning "> <span class="glyphicon glyphicon-pencil"></span></button></a>&nbsp;&nbsp;&nbsp;&nbsp;
                                                  <a href=""><button class="btn btn-danger"> <span class="glyphicon glyphicon-remove"></span></button></a>
                                                 <br><hr>
                                                 <p style="color:black;">${evento.descricao}</p>
