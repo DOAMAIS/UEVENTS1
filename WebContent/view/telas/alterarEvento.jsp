@@ -46,18 +46,18 @@
 <c:import url="../comum/navbar.jsp" />
  <div class="container">
   <div class="widget">
-	<form action="alterarEvento" method="post" enctype="multipart/form-data">
-	  <h2>Alterar Evento : ${evento.nome}</h2>
-	  <input type="hidden" name="id" value="${evento.id}">
+	<form action="eventoAlterado" method="post" enctype="multipart/form-data">
+	  <h3>Alterar Evento : ${evento.nome}</h3>
+	  	<input type="hidden" name="id" value="${evento.id}">
 	  
-	  <input type="hidden" name="status" value="ativo"/>
+	  	<input type="hidden" name="status" value="ativo"/>
 		<input type="text" class="form-control"  name="nome" value="${evento.nome}" /><br/>
 		<input type="file" class="form-control" name="file" accept=".jpeg,.png,.jpg"/><br/>
-		<input type="text" class="form-control" name="dataInicio"    value="${evento.dataInicio}" /><br/>
-		<input type="text" class="form-control" name="dataTermino"  value="${evento.dataTermino}"/><br/>
-	  	<textarea class="form-control" name="descricao" id="descricao" maxlength="150" onkeydown="restantes(this.id);" value="${evento.descricao}"></textarea>
+		<input type="text" class="form-control" name="dataInicio" value="<fmt:formatDate value="${evento.dataInicio}" pattern="dd/MM/yyyy"/>" /><br/>
+		<input type="text" class="form-control" name="dataTermino" value="<fmt:formatDate value="${evento.dataTermino}" pattern="dd/MM/yyyy"/>"/><br/>
+	  	<textarea class="form-control" name="descricao" id="descricao" maxlength="150" onkeydown="restantes(this.id);">${evento.descricao}</textarea>
 	  	<label align="left" id="i"></label><br>
-	    <a href="alterarEvento"><button class="btn btn-success ">Alterar Evento</button></a>  
+	  	<button class="btn btn-success ">Alterar Evento</button>
 
 	</form>
    </div>		
