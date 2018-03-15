@@ -25,19 +25,6 @@ public class EventoController {
 		return "telas/cadasEvento";
 	}
 	
-	@RequestMapping("telaAdm")
-	public String visualizara(Model model){
-		EventoDao dao = new EventoDao();
-		List<Evento> listaEventos = dao.listar();
-		model.addAttribute("listaEventos", listaEventos);
-		List<Atividade> listaAtividades = new AtividadeDao().listar();
-		model.addAttribute("listaAtividades", listaAtividades);
-		System.out.println("visualizar");
-		return "telas/inicialAdm";
-	}
-	
-
-
 	@RequestMapping("inserirEvento")
 	public String cadastroEvento(Evento evento, @RequestParam("file") MultipartFile imagem){
 
@@ -62,7 +49,7 @@ public class EventoController {
 		return "telas/visualizarEvento";
 	}
 
-	@RequestMapping("/removerEventos")
+	@RequestMapping("/removerEvento")
 	public String removerEventos(Evento evento, Model model) {
 
 		EventoDao dao = new EventoDao();
@@ -70,38 +57,26 @@ public class EventoController {
 		model.addAttribute(Mensagens.EvExcluidoSucesso);
 
 		return "telas/InicialEvento";
+	}
 
-		/*
-		 * <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-		 * <c:forEach var="evento" items="${listaEventos}">
-		 * 	 ${evento.atributos}
-		 * </c:forEach>
-		 * 		EventoDao dao = new EventoDao();
-		List<Evento> listaEventos = dao.listar();
-		model.addAttribute("listaEventos", listaEventos);
-		 */
-		 @RequestMapping("/exibirAlterarEvento")
+	@RequestMapping("/alterarEvento")
     public String exibirAlterarEvento(Evento evento, Model model) {
 
-	EventoDao dao = new EventoDao();
-	Evento eventoCompleto = dao.buscarPorId(evento.getId());
-	model.addAttribute("evento", eventoCompleto);
-
-
-
-	return "telas/alterarEvento";
+		EventoDao dao = new EventoDao();
+		Evento eventoCompleto = dao.buscarPorId(evento.getId());
+		model.addAttribute("evento", eventoCompleto);
+	
+		return "telas/alterarEvento";
     }
 
-    @RequestMapping("/alterarEvento")
+    @RequestMapping("/eventoAlterado")
     public String alterarEvento(Evento evento, Model model) {
 
-	EventoDao dao = new EventoDao();
-	dao.alterar(evento);
-	model.addAttribute("msg", "Evento Alterado com Sucesso!");
+		EventoDao dao = new EventoDao();
+		dao.alterar(evento);
+		model.addAttribute("msg", Mensagens.EvAlteradoSucesso);
 	
 
-	return "forward:listaEventos";
+		return "forward:paginaInicial";
     }
 }
-
-	
