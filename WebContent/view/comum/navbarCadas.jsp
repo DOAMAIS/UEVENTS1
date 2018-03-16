@@ -19,14 +19,14 @@
 		<!-- .navbar-collapse -->
 		<div class="collapse navbar-collapse">
 		<ul class="nav navbar-nav">
-		<li> <img alt="" src"" >  <!--  colocar logo aqui -->
+		<li> <img alt="" src="" >  <!--  colocar logo aqui -->
 		</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right" >
 				<li><a class="navbar-brand" href="/uevents/visualizarEventos">Visualizar eventos</a> </li>
 			</ul>
 				<ul class="nav navbar-nav navbar-right" >
-				<li><a class="navbar-brand" href="/uevents/home">Entrar</a> </li>
+				<li><a class="navbar-brand" href="paginaInicial">Entrar</a> </li>
 			</ul>
 			
 		</div><!-- /.navbar-collapse -->

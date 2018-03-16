@@ -56,6 +56,8 @@ public class UsuarioController {
 			
 			Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
 			
+			usuarioLogado = new UsuarioDao().buscarPorId(usuarioLogado);
+			
 			//Lista de Eventos
 			List<Evento> listaEventos = new EventoDao().listar();
 			model.addAttribute("listaEventos", listaEventos);
@@ -65,6 +67,8 @@ public class UsuarioController {
 			//Lista de Atividades do UsuÃ¡rio
 			List<Atividade> atvsUsuarioLogado = new UsuarioDao().listarAtvs(usuarioLogado);
 			model.addAttribute("atvsUsuarioLogado", atvsUsuarioLogado);
+			
+			session.setAttribute("usuarioLogado", usuarioLogado);
 			
 			if(usuarioLogado.getId() == 1){
 				return "telas/inicialAdm";
@@ -127,13 +131,6 @@ public class UsuarioController {
 		public String cancelar(Atividade atividade, HttpSession session, Model model){
 			return "forward:paginaInicial";
 		}
-		
-		/*@RequestMapping("/gerarAta")
-		public String gerarAta(Atividade atividade, Model model) throws IOException, DocumentException{
-			HtmlToPdf.createPdf(Util.geraSalt()+"ATA-DA-ATV.pdf", atividade);
-			model.addAttribute("msg", "Ata gerada com sucesso");
-			return "telas/";
-		}*/
 
 		@RequestMapping("/exibirAlterarUsuario")
 	    public String exibirAlterarUsuario() {

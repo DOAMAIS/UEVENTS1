@@ -156,7 +156,9 @@ public class UsuarioDao {
 			stmt.setString(2, usuario.getEmail());
 			stmt.setString(3, usuario.getNome());
 			stmt.setString(4, usuario.getSenha());
-			stmt.setInt(5, usuario.getId());
+			stmt.setInt(5, usuario.getIdTipoUsuario());
+			stmt.setInt(6, usuario.getId());
+			
 			stmt.execute();
 			connection.close();
 		}catch(SQLException e){
@@ -164,6 +166,28 @@ public class UsuarioDao {
 		}
 	}
 
+	 public Usuario buscarPorId(Usuario usuario){
+			
+			try{
+				Usuario usuarioConsultado = null;
+				PreparedStatement stmt = this.connection.prepareStatement("select * from usuario where id = ?;");
+				stmt.setInt(1, usuario.getId());
+				ResultSet rs = stmt.executeQuery();
+				
+				if (rs.next()) {
+					usuarioConsultado = montarObjeto(rs);
+					}
+				
+				rs.close();
+				connection.close();
+				stmt.close();
+				return usuarioConsultado;
+			}catch(SQLException e){
+				throw new RuntimeException(e);
+			}
+			
+		}
+	 
 	 public void remover(Usuario usuario){
 		
 		PreparedStatement stmt;
