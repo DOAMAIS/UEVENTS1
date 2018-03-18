@@ -13,7 +13,20 @@
 <c:import url="/view/linkcss.jsp" />
 </head>
 <body>
-<c:import url="../comum/navbarCadas.jsp" />
+<script type="text/javascript">
+      function verificaSenha(){
+    	var senha = document.getElementById("senha");
+        var confSenha = document.getElementById("confSenha");
+
+        if(senha.value!=confSenha.value){
+          alert("As senhas não combinam");
+          confSenha.focus();
+          return false;
+        }
+     }
+  </script>
+  
+<c:import url="../comum/navbarCadProf.jsp" />
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-20 p-b-20">
@@ -46,6 +59,12 @@
 						<input class="input100" type="password" name="senha">
 						<span class="focus-input100" data-placeholder="Senha"></span>
 					</div>
+					
+					<div class="wrap-input100 validate-input m-b-30" data-validate="Escreva novamento sua senha">
+						<input class="input100" type="password" id="confSenha" name="confSenha">
+						<span class="focus-input100" data-placeholder="Confimar de senha"></span>
+					</div>
+					
 					<select class="wrap-input100 validate-input m-b-20" name="idTipoUsuario">
 						<option>Selecione o tipo de usuário...</option>
 						<option value="1">Convidado</option>
