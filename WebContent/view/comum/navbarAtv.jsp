@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <head>
 <c:import url="/view/linkcss.jsp" />
-	<c:import url="../css/css_navbar.jsp" />
+	<c:import url="../css/navbar.css" />
 </head>
 <nav class="navbar  navbar-fixed-top navbar-expand-lg "navbar navbar-light" style="background-color: #277554;">
 
