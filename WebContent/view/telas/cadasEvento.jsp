@@ -39,11 +39,11 @@
 			  top:20%;
 		}
 	</style>
-	<link rel="stylesheet" type="text/css" href="view/bootstrap/css/bootstrap.min.css" />
+	<c:import url="/view/linkcss.jsp" />
 	<script type="text/javascript" src="view/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<c:import url="../comum/navbarUsuario.jsp" />
+<c:import url="../comum/navbarEvento.jsp" />
  <div class="container">
   <div class="widget">
 	<form action="inserirEvento" method="post" enctype="multipart/form-data">
