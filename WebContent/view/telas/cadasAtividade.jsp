@@ -42,11 +42,11 @@
 		}     
 
 	</style>
-	<link rel="stylesheet" type="text/css" href="view/bootstrap/css/bootstrap.min.css" />
+	<c:import url="/view/linkcss.jsp" />
 	<script type="text/javascript" src="view/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<c:import url="../comum/navbarUsuario.jsp" />
+<c:import url="../comum/navbarAtv.jsp" />
 	<div class="widget">
 	<form action="inserirAtividade" method="post" enctype="multipart/form-data">
 	  <h2>Nova Atividade</h2>
@@ -61,12 +61,12 @@
 		<input type="text" class="form-control" placeholder="Nome da Atividade" name="nome" minlength="5" required/><br/>
 		<input type="text" class="form-control" name="orientador" placeholder="Orientador da Atividade" minlength="5" required/><br/>
 		<input type="text" class="form-control" name="data"  placeholder="11/07/2001 - data do evento" required/><br/>
-		<input type="text" class="form-control" name="horaInicio" placeholder="13:00 - hora de início" required/> &nbsp; &nbsp; &nbsp;
-		<input type="text" class="form-control" name="horaTermino" placeholder="13:00 - hora de término" required/><br/>
+		<input type="text" class="form-control" name="horaInicio" placeholder="13:00 - hora de inÃ­cio" required/> &nbsp; &nbsp; &nbsp;
+		<input type="text" class="form-control" name="horaTermino" placeholder="13:00 - hora de tÃ©rmino" required/><br/>
 		<input type="text" class="form-control" name="local" placeholder="Local da Atividade" required/><br/>
-	  	<textarea class="form-control" name="descricao" id="descricao"placeholder="Descrição da Atividade" maxlength="150" onkeydown="restantes(this.id);"></textarea>
+	  	<textarea class="form-control" name="descricao" id="descricao"placeholder="DescriÃ§Ã£o da Atividade" maxlength="150" onkeydown="restantes(this.id);"></textarea>
 	  	<i id="i"></i><br>
-	  	<input type="text" class="form-control" placeholder="Observação(opcional)" name="observacao"/><br/>
+	  	<input type="text" class="form-control" placeholder="ObservaÃ§Ã£o(opcional)" name="observacao"/><br/>
 	  	<input type="number" class="form-control" placeholder="Limite de Pessoas" name="limite" required/><br/>
 	  	<button class="btn btn-success">Nova Atividade</button>
 	</form>
