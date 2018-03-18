@@ -18,24 +18,18 @@
        Usuário
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Novo usuário</a>
-          <a class="dropdown-item" href="#">Alterar usuário</a>
+          <a class="dropdown-item" href="cadasProf">Novo usuário</a>
+          <a class="dropdown-item" href="">Alterar usuário</a>
           <a class="dropdown-item" href="#">Excluir usuário</a>
           
         </div>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Evento
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Novo evento</a>
-          <a class="dropdown-item" href="#">Alterar evento</a>
-          <a class="dropdown-item" href="#">Excluir evento</a>
-        </div>
+     <li class="nav-item">
+        <a class="nav-link" href="cadasEvento">Novo evento</a>
       </li>
+      
       <li class="nav-item">
-        <a class="nav-link" href="#">Nova atividade</a>
+        <a class="nav-link" href="cadasAtividade">Nova atividade</a>
       </li>
     </ul>
             <a href="logout"><button class="btn btn-success pull-right">Sair</button></a>
@@ -43,4 +37,4 @@
    
   </div>
 </nav>
-</html>
+
