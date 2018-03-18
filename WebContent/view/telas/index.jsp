@@ -48,10 +48,6 @@
 						<li class="m-b-8">
 							<a href="#" class="txt2"> Esqueceu a senha?</a>
 						</li>
-
-						<li><span class="txt1"> Não tem conta? </span>
-							<a href="cadasUsuario" class="txt2"> Clique aqui!</a>
-						</li>
 					</ul>
 				</form>
 			</div>
