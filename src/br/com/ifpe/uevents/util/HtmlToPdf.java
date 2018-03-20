@@ -1,5 +1,7 @@
 package br.com.ifpe.uevents.util;
 
+import java.awt.Desktop;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
@@ -148,6 +150,14 @@ public class HtmlToPdf {
         document.add(p);
 
         document.close();
+	
+	//Abrir arquivo
+	
+	Desktop desktop = Desktop.getDesktop();
+
+        File file = new File("C:/Users/Edmarcos/git/UEVENTS1/WebContent/view/pdf/"+dest);
+
+        desktop.open(file);
 
     }
 
