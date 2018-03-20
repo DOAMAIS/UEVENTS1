@@ -73,30 +73,29 @@
                                                 <img src="view/img/123.png" height="70" width="70">
                                             </c:otherwise>
                                           </c:choose>
-                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            
                                                 <b>${evento.nome}</b>
-                                           <div class="pull-right">
-                                                 <a href="alterarEvento?id=${evento.id}"><button class="btn btn-warning "> <span class="glyphicon glyphicon-pencil"></span></button></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <div class="pull-right">
+                                                 <a href="alterarEvento?id=${evento.id}"><button class="btn btn-warning "> <span class="glyphicon glyphicon-pencil"></span></button></a>
                                                  <a href="removerEvento"><button class="btn btn-danger" data-toggle="modal" data-target="#confirm"> <span class="glyphicon glyphicon-remove"></span></button></a>
-                                                 </div>
-                                                <br><hr>
-                                               
+                                                </div>
+                                                <hr>
                                                 		<div class="modal fade" id="confirm" role="dialog">
-                                                          <div class="modal-dialog modal-md">
-                                                        
-                                                            <div class="modal-content">
-                                                              <div class="modal-body">
-                                                                    <p> Tem certeza que gostaria que excluir evento?</p>
-                                                              </div>
-                                                              <div class="modal-footer">
-                                                                <a href="wfefwe" type="button" class="btn btn-danger" id="delete">Sim</a>
-                                                                    <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
-                                                              </div>
-                                                            </div>
-                                                        
-                                                          </div>
-                                                       
-                                                	</div>
+														  <div class="modal-dialog modal-md">
+														
+														    <div class="modal-content">
+														      <div class="modal-body">
+														            <p> Tem certeza que gostaria que excluir evento?</p>
+														      </div>
+														      <div class="modal-footer">
+														        <a href="wfefwe" type="button" class="btn btn-danger" id="delete">Sim</a>
+														            <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
+														      </div>
+														    </div>
+														
+														  </div>
+														</div>
+                                                	
                                                 <p style="color:black;">${evento.descricao}</p>
                                                
                                       </div>
@@ -118,7 +117,7 @@
                                                         <td>${atividade.nome}</td>
                                                         <td><fmt:formatDate value="${atividade.data}" pattern="dd/MM/yyyy"/></td>
                                                         <td>${atividade.horaInicio}</td>
-                                                        <td><a href=""><button class="btn btn-info">Gerar ata</button></a>
+                                                        <td><a href="gerarAta?id=${atividade.id}"><button class="btn btn-info">Gerar ata</button></a>
                                                         <td><a href="alterarAtividade?id=${atividade.id}"><button class="btn btn-warning "> <span class="glyphicon glyphicon-pencil"></span></button></a>
                                                         <td><a href="removerAtividade?id=${atividade.id}"><button class="btn btn-danger"> <span class="glyphicon glyphicon-remove"></span></button></a>
                                                     </tr>
