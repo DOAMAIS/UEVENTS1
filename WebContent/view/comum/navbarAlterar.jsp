@@ -13,8 +13,10 @@
       <li class="nav-item active">
         <a class="nav-link"href="desistir">Página inicial</a>
       </li>
-    
+      <li class="nav-item active">
+        <a class="nav-link"href="exibirAlterarSenha">Alterar senha</a>
+      </li>
     </ul>
-    <a href="logout"><button class="btn btn-success pull-right">Sair</button></a>
   </div>
+      <a href="logout"><button class="btn btn-success pull-right">Sair</button></a>
 </nav>
