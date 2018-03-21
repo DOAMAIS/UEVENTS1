@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.ifpe.uevents.Model.Usuario;
 import br.com.ifpe.uevents.Model.Atividade;
+import br.com.ifpe.uevents.Model.Usuario;
 import br.com.ifpe.uevents.util.ConnectionFactory;
 
 
@@ -147,25 +147,6 @@ public class UsuarioDao {
 		return listaAtividades;
 	}
 
-	 public void alterar(Usuario usuario){		
-		PreparedStatement stmt;
-		String sql = "UPDATE usuario SET cpf=?, email=?, nome=?, senha=?,id_tipo_usuario=? WHERE id=?";
-		try{
-			stmt = connection.prepareStatement(sql);			
-			stmt.setString(1, usuario.getCpf());
-			stmt.setString(2, usuario.getEmail());
-			stmt.setString(3, usuario.getNome());
-			stmt.setString(4, usuario.getSenha());
-			stmt.setInt(5, usuario.getIdTipoUsuario());
-			stmt.setInt(6, usuario.getId());
-			
-			stmt.execute();
-			connection.close();
-		}catch(SQLException e){
-			throw new RuntimeException(e);
-		}
-	}
-
 	 public Usuario buscarPorId(Usuario usuario){
 			
 			try{
@@ -205,5 +186,32 @@ public class UsuarioDao {
 			throw new RuntimeException(e);
 		}
 	}
-
+	 public void alterar(Usuario usuario){		
+			PreparedStatement stmt;
+			String sql = "UPDATE usuario SET cpf=?, email=?, nome=?  WHERE id=?";
+			try{
+				stmt = connection.prepareStatement(sql);			
+				stmt.setString(1, usuario.getCpf());
+				stmt.setString(2, usuario.getEmail());
+				stmt.setString(3, usuario.getNome());
+				stmt.setInt(4, usuario.getId());
+				stmt.execute();
+				connection.close();
+			}catch(SQLException e){
+				throw new RuntimeException(e);
+			}
+		}
+		 public void alterarSenha(Usuario usuario){		
+				PreparedStatement stmt;
+				String sql = "UPDATE usuario SET senha=? WHERE id=?";
+				try{
+					stmt = connection.prepareStatement(sql);			
+					stmt.setString(1, usuario.getSenha());
+					stmt.setInt(2, usuario.getId());
+					stmt.execute();
+					connection.close();
+				}catch(SQLException e){
+					throw new RuntimeException(e);
+				}
+		 }
  }

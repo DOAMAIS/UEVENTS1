@@ -47,7 +47,7 @@ public class HtmlToPdf {
 		
         Document document = new Document();
 
-        PdfWriter.getInstance(document, new FileOutputStream("C:/Users/Edmarcos/git/UEVENTS1/WebContent/view/pdf/"+dest));
+        PdfWriter.getInstance(document, new FileOutputStream("/home/gabriel/git/UEVENTS1/WebContent/view/pdf/"+dest));
 
         document.open();
 
@@ -155,7 +155,7 @@ public class HtmlToPdf {
 	
 	Desktop desktop = Desktop.getDesktop();
 
-        File file = new File("C:/Users/Edmarcos/git/UEVENTS1/WebContent/view/pdf/"+dest);
+        File file = new File("/home/gabriel/git/UEVENTS1/WebContent/view/pdf/"+dest);
 
         desktop.open(file);
 

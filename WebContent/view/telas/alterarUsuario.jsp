@@ -17,7 +17,7 @@
         var confSenha = document.getElementById("confSenha");
 
         if(senha.value!=confSenha.value){
-           alert("As senhas não combinam");
+           alert("As senhas nÃ£o combinam");
            confSenha.focus();
            return false;
           }
@@ -29,14 +29,14 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-20 p-b-20">
-				<form class="login100-form validate-form" action="alterarUsuario" method="post">
+				<form class="login100-form validate-form" action="alterarUsuario" method="post" onsubmit="return verificaSenha();">
 					<span class="login100-form-title p-b-20">
 						UEVENTS
 					</span>
 					<c:if test="${msg != null }">
 						<div class="alert alert-success">
-						      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-						      <span><strong> Parabéns:</strong> ${msg} </span>
+						      <button type="button" class="close" aria-hidden="true">Ã—</button>
+						      <span><strong> ParabÃ©ns:</strong> ${msg} </span>
 						</div>
 					</c:if>
 					<div class="wrap-input100 validate-input m-b-35" data-validate = "Enter matriculation">
@@ -52,14 +52,6 @@
 					<div class="wrap-input100 validate-input m-b-35" data-validate = "Enter email">
 						<input class="input100" type="text" name="email" value="${usuarioLogado.email}">
 						<span class="focus-input100" data-placeholder="E-mail"></span>
-					</div>
-					<div class="wrap-input100 validate-input m-b-30" data-validate="Escreva sua senha">
-						<input class="input100" type="password" name="senha" id="senha">
-						<span class="focus-input100" data-placeholder="Senha"></span>
-					</div>
-					<div class="wrap-input100 validate-input m-b-30" data-validate="Escreva novamento sua senha">
-						<input class="input100" type="password" id="confSenha" name="confSenha">
-						<span class="focus-input100" data-placeholder="Confimar de senha"></span>
 					</div>
 					<input class="input100" type="hidden" name="idTipoUsuario" value="${usuarioLogado.idTipoUsuario}">
 					<br>

@@ -14,12 +14,12 @@
         <a class="nav-link" href="desistir">Pagina inicial</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link"  href="/uevents/cadasUsuario">Novo usu√°rio</a>
+        <a class="nav-link"  href="/uevents/cadasProf">Novo usu·rio</a>
       </li>
        <li class="nav-item active">
         <a class="nav-link" href="/uevents/cadasAtividade">Nova Atividade</a>
       </li>
     </ul>
-    <a href="logout"><button class="btn btn-success pull-right">Sair</button></a>
   </div>
+  <a href="logout"><button class="btn btn-success pull-right">Sair</button></a>
 </nav>

@@ -13,6 +13,9 @@
       <li class="nav-item active">
         <a class="nav-link"href="exibirAlterarUsuario">Alterar dados</a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link"href="exibirAlterarSenha">Alterar senha</a>
+      </li>
     </ul>
     <a href="logout"><button class="btn btn-success pull-right">Sair</button></a>
   </div>

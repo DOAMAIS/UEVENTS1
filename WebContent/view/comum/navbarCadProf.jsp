@@ -20,6 +20,6 @@
         <a class="nav-link" href="/uevents/cadasAtividade">Nova Atividade</a>
       </li>
     </ul>
-    <a href="logout"><button class="btn btn-success pull-right">Sair</button></a>
   </div>
+  <a href="logout"><button class="btn btn-success pull-right">Sair</button></a>
 </nav>

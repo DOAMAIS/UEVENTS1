@@ -17,9 +17,6 @@
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
     
  <style type="text/css">
-   body {
-    	padding-top: 30px;
-}
 
 .faq-cat-content {
     margin-top: 25px;
@@ -138,7 +135,6 @@
 </head>
 <body>
 <c:import url="../comum/navbarVisu.jsp" />
-<br><br><br>
 <div class="container">   
     <div class="row">
         <div class="col-md-6 col-md-offset-3">

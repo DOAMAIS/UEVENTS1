@@ -131,7 +131,6 @@ public class UsuarioController {
 		public String cancelar(Atividade atividade, HttpSession session, Model model){
 			return "forward:paginaInicial";
 		}
-
 		@RequestMapping("/exibirAlterarUsuario")
 	    public String exibirAlterarUsuario() {
 			return "telas/alterarUsuario";
@@ -143,6 +142,18 @@ public class UsuarioController {
 			model.addAttribute("msg", Mensagens.UsuarioAterado);
 			return "forward:paginaInicial";
 	    }
+		@RequestMapping("/exibirAlterarSenha")
+	    public String exibirAlterarSenha() {
+			return "telas/alterarSenha";
+	    }
+		@RequestMapping("/alterarSenha")
+	    public String alterarSenha(Usuario Usuario, Model model) {	
+			UsuarioDao dao = new UsuarioDao();
+			dao.alterarSenha(Usuario);
+			model.addAttribute("msg", Mensagens.UsuarioAterado);
+			return "forward:paginaInicial";
+	    }
+		
 		
 		@RequestMapping("/gerarAta")
 	    public String gerarAta(Atividade atv, Model model) throws IOException, DocumentException {	

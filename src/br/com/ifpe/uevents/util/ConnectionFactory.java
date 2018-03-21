@@ -11,7 +11,7 @@ public class ConnectionFactory {
 		//Alterar aqui antes de executar
 		String banco = "uvents";
 		String user = "root";
-		String senha = "ifpe1234";
+		String senha = "";
 
 		
 		try{

@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Cadastro de Atividades</title>
+	<title>Alterar Atividade</title>
 	<script type="text/javascript">
 		function restantes(id){
 			var a = document.getElementById(id);
@@ -43,11 +43,11 @@
 		}     
 
 	</style>
-	<link rel="stylesheet" type="text/css" href="view/bootstrap/css/bootstrap.min.css" />
+	<c:import url="/view/linkcss.jsp" />
 	<script type="text/javascript" src="view/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<c:import url="../comum/navbarUsuario.jsp" />
+<c:import url="../comum/navbarAtv.jsp" />
 	<div class="widget">
 	<form action="alteracaoEfetuada" method="post" enctype="multipart/form-data">
 	  <h2>Alterar Atividade</h2>
