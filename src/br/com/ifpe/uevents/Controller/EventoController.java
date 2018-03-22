@@ -56,7 +56,7 @@ public class EventoController {
 		dao.remover(evento);
 		model.addAttribute(Mensagens.EvExcluidoSucesso);
 
-		return "telas/InicialEvento";
+		return "forward:paginaInicial";
 	}
 
 	@RequestMapping("/alterarEvento")
