@@ -11,7 +11,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link"  href="/uevents/cadasProf">Novo usuário</a>
+        <a class="nav-link"  href="/uevents/cadasProf">Novo Usuário</a>
       </li>
        <li class="nav-item active">
         <a class="nav-link" href="/uevents/cadasAtividade">Nova Atividade</a>
