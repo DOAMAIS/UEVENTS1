@@ -11,7 +11,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link"href="exibirAlterarUsuario">Alterar dados</a>
+        <a class="nav-link"href="exibirAlterarUsuario">Alterar Dados</a>
       </li>
     </ul>
   </div>
