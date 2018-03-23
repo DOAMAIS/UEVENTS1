@@ -38,7 +38,7 @@
     
             <!-- Tab panes / começo -->
             <div class="tab-content faq-cat-content">
-                <div class="tab-pane active in fade" id="faq-cat-1">
+                <div class="tab-pane active" id="faq-cat-1">
                     <div class="panel-group" id="accordion-cat-1">
                       <!-- Painel a ser impresso -->
                        <c:forEach var="evento" items="${listaEventos}" varStatus="id">
@@ -105,7 +105,7 @@
                   </c:forEach>
                 </div>
                 </div>
-                <div class="tab-pane fade" id="faq-catative-2">
+                <div class="tab-pane " id="faq-catative-2">
                     <div class="panel-group" id="accordion-catative-2">
                         <div class="panel panel-default panel-faq">
                             <div class="panel-heading">
