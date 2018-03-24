@@ -10,6 +10,9 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
+	     <li class="nav-item active">
+	        <a class="nav-link" href="paginaInicial">Página Inicial</a>
+	      </li>
       <c:if test="${usuarioLogado.id != 1}">
 	      <li class="nav-item active">
 	        <a class="nav-link" href="cadasAtividade">Nova Atividade</a>
