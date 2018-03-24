@@ -6,9 +6,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-   <title>Visualizar Eventos</title>
+   <title>Inicial Adm</title>
     <c:import url="/view/linkcss.jsp" />
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -77,24 +76,8 @@
                                                 <b>${evento.nome}</b>
                                                 <div class="pull-right">
                                                  <a href="alterarEvento?id=${evento.id}"><button class="btn btn-warning "> <span class="glyphicon glyphicon-pencil"></span></button></a>
-                                                 <a href="removerEvento"><button class="btn btn-danger" data-toggle="modal" data-target="#confirm"> <span class="glyphicon glyphicon-remove"></span></button></a>
-                                                </div>
-                                                <hr>
-                                                		<div class="modal fade" id="confirm" role="dialog">
-														  <div class="modal-dialog modal-md">
-														
-														    <div class="modal-content">
-														      <div class="modal-body">
-														            <p> Tem certeza que gostaria que excluir evento?</p>
-														      </div>
-														      <div class="modal-footer">
-														        <a href="wfefwe" type="button" class="btn btn-danger" id="delete">Sim</a>
-														            <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
-														      </div>
-														    </div>
-														
-														  </div>
-														</div>
+                                                 </div>
+                                                 <hr>
                                                 	
                                                 <p style="color:black;">${evento.descricao}</p>
                                                
