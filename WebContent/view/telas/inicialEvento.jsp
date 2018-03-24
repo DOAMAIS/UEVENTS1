@@ -84,6 +84,7 @@
                                                         <td>${atividade.nome}</td>
                                                         <td><fmt:formatDate value="${atividade.data}" pattern="dd/MM/yyyy"/></td>
                                                         <td>${atividade.horaInicio}</td>
+                                                        <c:if test="${usuarioLogado.idTipoUsuario != 3}">
                                                          <c:choose>
                                                          	<c:when test="${atividade.matriculado != 1 }">
                                                         		<td><a href="participarAtividade?id=${atividade.id}"><button class="btn btn-success">Participar</button></a></td>
@@ -92,7 +93,7 @@
                                                    			 	<td><button class="btn btn-secondary" style="width:91px;" disabled="disabled">Participar</button></td>
                                                    			 </c:otherwise>
                                                          </c:choose>
-                                                        	 
+                                                        </c:if> 
                                                     </tr>
                                                 </c:if>
                                              </c:forEach>
@@ -105,7 +106,7 @@
                   </c:forEach>
                 </div>
                 </div>
-                <div class="tab-pane " id="faq-catative-2">
+                <div class="tab-pane fade" id="faq-catative-2">
                     <div class="panel-group" id="accordion-catative-2">
                         <div class="panel panel-default panel-faq">
                             <div class="panel-heading">
@@ -121,6 +122,17 @@
                                 <div id="Atividades">
 					            <table class="table table-striped custab">
 					            	<c:forEach var="atividadeUsu" items="${listaAtividades}">
+					            		<c:if test="${usuarioLogado.idTipoUsuario == 3 && usuarioLogado.id == atividadeUsu.id_orientador}">
+					            			<tr>
+					                           <th>${atividadeUsu.nome}</th>
+					                           <th>
+					                             <div class="pull-right">
+                                                 	<a href="alterarAtividade?id=${atividadeUsu.id}"><button class="btn btn-warning "> <span class="glyphicon glyphicon-pencil"></span></button></a>
+                                                 	<a href="removerAtividade?id=${atividadeUsu.id}"><button class="btn btn-danger" data-toggle="modal" data-target="#confirm"> <span class="glyphicon glyphicon-remove"></span></button></a>
+                                                </div>
+					                           </th>
+					                       </tr>
+					            		</c:if>
 					                	<c:if test="${atividadeUsu.matriculado == 1}">
 					                       <tr>
 					                           <th>${atividadeUsu.nome}</th>
@@ -133,14 +145,14 @@
 					            </table>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                         </div>
+                      </div>
+                   </div>
+                 </div>
+               </div>
             </div>
           </div>
         </div>
-    </div>
-  </div>
 
                     <!-- Fim atividades -->
 
