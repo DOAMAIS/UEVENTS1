@@ -58,13 +58,14 @@
 	 </c:forEach>
 	 	</c:if>
 	 	</select><br/>
+	 	<input type="hidden" name="id_orientador" value="${usuarioLogado.id}"/>
 		<input type="text" class="form-control" placeholder="Nome da Atividade" name="nome" minlength="5" required/><br/>
 		<input type="text" class="form-control" name="orientador" placeholder="Orientador da Atividade" minlength="5" required/><br/>
-		<input type="text" class="form-control" name="data"  placeholder="11/07/2001 - data do evento" required/><br/>
-		<input type="text" class="form-control" name="horaInicio" placeholder="13:00 - hora de início" required/> &nbsp; &nbsp; &nbsp;
+		<input type="text" class="form-control" name="data"  placeholder="11/07/2001 - data da atividade" required/><br/>
+		<input type="text" class="form-control" name="horaInicio" placeholder="13:00 - hora de iní­cio" required/> &nbsp; &nbsp; &nbsp;
 		<input type="text" class="form-control" name="horaTermino" placeholder="13:00 - hora de término" required/><br/>
 		<input type="text" class="form-control" name="local" placeholder="Local da Atividade" required/><br/>
-	  	<textarea class="form-control" name="descricao" id="descricao"placeholder="Descrição da Atividade" maxlength="150" onkeydown="restantes(this.id);"></textarea>
+	  	<textarea class="form-control" name="descricao" id="descricao"placeholder="Descricão da Atividade" maxlength="150" onkeydown="restantes(this.id);"></textarea>
 	  	<i id="i"></i><br>
 	  	<input type="text" class="form-control" placeholder="Observação(opcional)" name="observacao"/><br/>
 	  	<input type="number" class="form-control" placeholder="Limite de Pessoas" name="limite" required/><br/>
