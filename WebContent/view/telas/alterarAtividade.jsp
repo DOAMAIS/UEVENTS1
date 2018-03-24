@@ -47,7 +47,7 @@
 	<script type="text/javascript" src="view/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<c:import url="../comum/navbarAtv.jsp" />
+<c:import url="../comum/navbarAdm.jsp" />
 	<div class="widget">
 	<form action="alteracaoEfetuada" method="post" enctype="multipart/form-data">
 	  <h2>Alterar Atividade</h2>
