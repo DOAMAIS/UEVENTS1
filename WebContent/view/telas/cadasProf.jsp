@@ -6,9 +6,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<c:if test="${msg != null}">
-	<meta http-equiv="Refresh" content="3;url=http://localhost:8080/uevents/">
-</c:if>
 <title>UEVENTS</title>
 <c:import url="/view/linkcss.jsp" />
 </head>
