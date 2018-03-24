@@ -7,6 +7,7 @@ public class Atividade {
 	private int id;
 	private int id_evento;
 	private String orientador;
+	private int id_orientador;
 	private String local;
 	private String nome;
 	private String descricao;
@@ -34,6 +35,12 @@ public class Atividade {
 	}
 	public void setId_evento(int id_evento) {
 		this.id_evento = id_evento;
+	}
+	public int getId_orientador() {
+		return id_orientador;
+	}
+	public void setId_orientador(int id_orientador) {
+		this.id_orientador = id_orientador;
 	}
 	public String getOrientador() {
 		return orientador;
