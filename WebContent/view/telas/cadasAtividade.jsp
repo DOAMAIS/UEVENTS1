@@ -46,7 +46,7 @@
 	<script type="text/javascript" src="view/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<c:import url="../comum/navbarAtv.jsp" />
+<c:import url="../comum/navbarAdm.jsp" />
 	<div class="widget">
 	<form action="inserirAtividade" method="post" enctype="multipart/form-data">
 	  <h2>Nova Atividade</h2>
