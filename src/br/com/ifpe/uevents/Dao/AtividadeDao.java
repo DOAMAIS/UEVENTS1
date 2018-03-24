@@ -26,7 +26,7 @@ public class AtividadeDao {
 	public void cadastrar(Atividade atividade){
 		
 		PreparedStatement stmt;
-		String sql = "INSERT INTO atividade (nome_atividade, descricao_atividade, orientador, observacao, data_atividade, hora_inicio, hora_termino,limite, id_evento, local) values (?,?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO atividade (nome_atividade, descricao_atividade, orientador, observacao, data_atividade, hora_inicio, hora_termino,limite, id_evento, local, id_orientador) values (?,?,?,?,?,?,?,?,?,?,?)";
 		
 		try{
 			stmt = connection.prepareStatement(sql);
@@ -41,6 +41,7 @@ public class AtividadeDao {
 			stmt.setInt(8, atividade.getLimite());
 			stmt.setInt(9, atividade.getId_evento());
 			stmt.setString(10, atividade.getLocal());
+			stmt.setInt(11, atividade.getId_orientador());
 			
 			stmt.execute();
 			connection.close();
@@ -135,6 +136,8 @@ public class AtividadeDao {
 				atv.setLocal(rs.getString("local"));
 				atv.setLimite(rs.getInt("limite"));
 				atv.setId_evento(rs.getInt("id_evento"));
+				atv.setId_orientador(rs.getInt("id_orientador"));
+				
 				
 				
 				listaAtividades.add(atv);
@@ -175,6 +178,7 @@ public class AtividadeDao {
 					atv.setLimite(rs.getInt("limite"));
 					atv.setId_evento(rs.getInt("id_evento"));
 					atv.setMatriculado(retornaUsuariomatriculado(rs.getInt("id"),usuario));
+					atv.setId_orientador(rs.getInt("id_orientador"));
 					
 					listaAtividades.add(atv);
 				}
