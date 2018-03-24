@@ -10,6 +10,9 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
+   <li class="nav-item active">
+        <a class="nav-link"href="paginaInicial">Entrar</a>
+      </li>
       <li class="nav-item active">
         <a class="nav-link"href="/uevents/visualizarEventos">Visualizar Eventos</a>
       </li>
