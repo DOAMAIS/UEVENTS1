@@ -34,4 +34,5 @@
       </c:if>
     </ul>
   </div>
+<a href="logout"><button class="btn btn-success pull-right">Sair</button></a>
 </nav>
