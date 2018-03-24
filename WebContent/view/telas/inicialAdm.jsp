@@ -7,21 +7,12 @@
 <html>
 <head>
    <title>Inicial Adm</title>
+   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
     <c:import url="/view/linkcss.jsp" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/view/bootstrap/css/bootstrap.min.css">
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="/view/bootstrap/js/bootstrap.min.js"></script>
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-    
-
-
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="/view/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
+     <meta name="viewport" content="width=device-width, initial-scale=1">   
     
 </head>
 <body>
@@ -76,7 +67,23 @@
                                                 <b>${evento.nome}</b>
                                                 <div class="pull-right">
                                                  <a href="alterarEvento?id=${evento.id}"><button class="btn btn-warning "> <span class="glyphicon glyphicon-pencil"></span></button></a>
-                                                 </div>
+						 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-remove"></button></a>
+                                               </div>
+						 <div class="modal fade" id="myModal" role="dialog">
+						    <div class="modal-dialog">    
+						      <div class="modal-content">
+							<div class="modal-header">
+							  <button type="button" class="close" data-dismiss="modal">&times;</button>
+							  <h4 class="modal-title">Tem certeza que deseja excluir esse evento?</h4>
+							</div>
+							<div class="modal-footer">
+							  <a href="removerEvento?id=${evento.id}"><button type="button" class="btn btn-success" data-dismiss="modal">Sim</button>
+							  <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+							</div>
+						      </div>
+
+						    </div>
+						  </div>	
                                                  <hr>
                                                 	
                                                 <p style="color:black;">${evento.descricao}</p>
@@ -125,6 +132,8 @@
 
                 </div>
             </div>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="/view/bootstrap/js/bootstrap.min.js"></script>                   
                    
 <script type="text/javascript">
 $(document).ready(function() {
