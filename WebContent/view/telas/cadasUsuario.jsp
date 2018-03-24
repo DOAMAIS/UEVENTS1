@@ -25,7 +25,7 @@
         }
      }
   </script>
-<c:import url="../comum/navbarCadas.jsp" />
+<c:import url="../comum/navbar.jsp" />
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-40 p-b-20">
