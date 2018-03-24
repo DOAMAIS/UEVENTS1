@@ -43,7 +43,7 @@
 	<script type="text/javascript" src="view/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<c:import url="../comum/navbarEvento.jsp" />
+<c:import url="../comum/navbarAdm.jsp" />
  <div class="container">
   <div class="widget">
 	<form action="inserirEvento" method="post" enctype="multipart/form-data">
