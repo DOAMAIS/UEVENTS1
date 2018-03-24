@@ -38,6 +38,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `uvents`.`atividade` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `id_evento` INT NOT NULL,
+  `id_orientador` INT NOT NULL,
   `nome_atividade` VARCHAR(100) NOT NULL,
   `orientador` VARCHAR(100) NOT NULL,
   `local` VARCHAR(100) NOT NULL,
@@ -52,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `uvents`.`atividade` (
   CONSTRAINT `id_evento`
     FOREIGN KEY (`id_evento`)
     REFERENCES `uvents`.`evento` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -118,9 +119,9 @@ INSERT INTO `usuario` VALUES (1, 54321, 'adm@gmail.com', 'Administrador', 'A665A
 INSERT INTO `evento` VALUES (1,null,"Missa Dominical",'2018-12-11','2018-12-11','Deus te abençoe','ativo'),
                             (2,NULL,'Semana de Tecnologia','2018-09-11','2018-09-18','Várias palestras','ativo');
                             
-INSERT INTO `atividade` VALUES (1,1,'Oração Inicial','Edmarcos','Capela Ns. Senhora','2018-12-12','12:00:00','12:15:00','Benção na sua vida','Tudo certo',500),
-							   (2,1,'Comunhão','Padre Bento','Capela Ns. Senhora','2018-12-12','12:15:00','12:50:00','Corpo de Cristo','Amém!',500),
-							   (3,2,'Palestra - Arroz com feijão','Prof° Zé Doido','Sala 2','2018-02-27','11:00:00','12:00:00','Amanhã','kkk',45);
+INSERT INTO `atividade` VALUES (1,1,1,'Oração Inicial','Edmarcos','Capela Ns. Senhora','2018-12-12','12:00:00','12:15:00','Benção na sua vida','Tudo certo',500),
+							   (2,1,1,'Comunhão','Padre Bento','Capela Ns. Senhora','2018-12-12','12:15:00','12:50:00','Corpo de Cristo','Amém!',500),
+							   (3,2,1,'Palestra - Arroz com feijão','Prof° Zé Doido','Sala 2','2018-02-27','11:00:00','12:00:00','Amanhã','kkk',45);
                                
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
