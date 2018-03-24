@@ -134,7 +134,7 @@
     
 </head>
 <body>
-<c:import url="../comum/navbarVisu.jsp" />
+<c:import url="../comum/navbar.jsp" />
 <div class="container">   
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
