@@ -54,9 +54,6 @@
 					</div>
 
 					<ul class="login-more p-t-50">
-						<li class="m-b-8">
-							<a href="#" class="txt2"> Esqueceu a senha?</a>
-						</li>
 					</ul>
 				</form>
 			</div>
