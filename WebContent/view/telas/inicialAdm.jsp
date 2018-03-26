@@ -77,8 +77,8 @@
 							  <h4 class="modal-title">Tem certeza que deseja excluir esse evento?</h4>
 							</div>
 							<div class="modal-footer">
-							  <a href="removerEvento?id=${evento.id}"><button type="button" class="btn btn-success" data-dismiss="modal">Sim</button>
-							  <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+							  <a href="removerEvento?id=${evento.id}"><button type="button" class="btn btn-success" >Sim</button></a>
+							  <button type="button" class="btn btn-danger" >Não</button>
 							</div>
 						      </div>
 
