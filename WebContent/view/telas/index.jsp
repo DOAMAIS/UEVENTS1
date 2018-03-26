@@ -8,7 +8,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>UEVENTS</title>
 <c:import url="/view/linkcss.jsp" />
-
+<script type="text/javascript">
+	function formatar(mascara, documento){
+	    var i = documento.value.length;
+	    var saida = mascara.substring(0,1);
+	    var texto = mascara.substring(i)
+	    if (texto.substring(0,1) != saida){
+	        documento.value += texto.substring(0,1);
+	    }
+	}
+</script>
 
 
 </head>
@@ -30,7 +39,7 @@
 					<!-- Teste de alerta, qualquer coisa é só tirar -->
 					<div class="wrap-input100 validate-input m-t-5 m-b-35"
 						data-validate="Enter username">
-						<input class="input100" type="text" name="cpf"> <span
+						<input class="input100" type="text" name="cpf" OnKeyPress="formatar('###.###.###-##', this)" > <span
 							class="focus-input100" data-placeholder="CPF"></span>
 					</div>
 
