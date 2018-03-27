@@ -39,7 +39,7 @@
 					<!-- Teste de alerta, qualquer coisa é só tirar -->
 					<div class="wrap-input100 validate-input m-t-5 m-b-35"
 						data-validate="Enter username">
-						<input class="input100" type="text" name="cpf" OnKeyPress="formatar('###.###.###-##', this)" > <span
+						<input class="input100" type="text" name="cpf" OnKeyPress="formatar('###.###.###-##', this)" minlength="14" maxlength="14"> <span
 							class="focus-input100" data-placeholder="CPF"></span>
 					</div>
 

@@ -11,6 +11,8 @@
 </c:if>
 <title>Cadastre-se</title>
 <c:import url="/view/linkcss.jsp" />
+<script src="/view/js/jquery.js"></script>
+<script src="/view/js/jquery.validate.js"></script>
   <script type="text/javascript">
       function verificaSenha(){
     	var senha = document.getElementById("senha");
@@ -24,7 +26,7 @@
       }
       
       function letras(){
-    	  tecla = event.keyCode;
+    	  var tecla = event.keyCode;
     	  if (tecla >= 33 && tecla <= 64 || tecla >= 91 && tecla <= 93 || tecla >= 123 && tecla <= 159 || tecla >= 162 && tecla <= 191 ){ 
     	      return false;
     	  }else{
@@ -41,6 +43,23 @@
     	    }
     	}
       
+	function validar(dom,tipo){
+		switch(tipo){
+			case'num':var regex=/[A-Za-zçãàáâéêíóôõúÂÃÁÀÉÊÍÓÔÕÚÇ<\>\!?$%:;,º°ª]/g;break;
+			case'text':var regex=/\d/g;break;
+		}
+		dom.value=dom.value.replace(regex,'');
+	}
+      $(function() {
+    	  $("form").validate({
+    		  rules: {
+    			  nome: {
+    				  required : true
+    			  }
+    			  
+    		  	}
+    	  });
+      });
   </script>
 
 </head>
@@ -61,30 +80,30 @@
 						</div>
 					</c:if>
 					<div class="wrap-input100 validate-input m-b-35" data-validate = "Escreva seu nome">
-						<input class="input100" type="text" name="nome" onkeypress="return letras();" required>
+						<input class="input100" type="text" id="nome" name="nome" onkeypress="return letras();">
 						<span class="focus-input100" data-placeholder="Nome"></span>
 					</div>
 					
 					<div class="wrap-input100 validate-input m-b-35" data-validate = "Escreva seu CPF">
-						<input class="input100" type="text" id="cpf" name="cpf" OnKeyPress="formatar('###.###.###-##', this)" minlength="14" maxlength="14" required>
+						<input class="input100" type="text" id="cpf" name="cpf" onkeyup="validar(this,'num');" OnKeyPress="formatar('###.###.###-##', this);" minlength="14" maxlength="14">
 						<span class="focus-input100" data-placeholder="CPF"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-35" data-validate = "Escreva seu e-mail">
-						<input class="input100" type="email" name="email" required>
+						<input class="input100" type="email" id="email" name="email">
 						<span class="focus-input100" data-placeholder="E-mail"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-30" data-validate="Escreva sua senha">
-						<input class="input100" type="password" name="senha" minlength="5" id="senha" required>
+						<input class="input100" type="password" name="senha" minlength="5" id="senha">
 						<span class="focus-input100" data-placeholder="Senha"></span>
 					</div>
 					
 					<div class="wrap-input100 validate-input m-b-30" data-validate="Escreva novamento sua senha">
-						<input class="input100" type="password" id="confSenha" name="confSenha" required>
+						<input class="input100" type="password" id="confSenha" name="confSenha">
 						<span class="focus-input100" data-placeholder="Confimar de senha"></span>
 					</div>
-					<select class="wrap-input100 validate-input m-b-20" name="idTipoUsuario">
+					<select class="wrap-input100 validate-input m-b-20" name="idTipoUsuario"  required>
 						<option>Selecione o tipo de usuário...</option>
 						<option value="1">Convidado</option>
 						<option value="2">Aluno</option>

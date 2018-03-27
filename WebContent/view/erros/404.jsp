@@ -10,7 +10,7 @@
 <c:import url="/view/linkcss.jsp" />
 </head>
 <body>
-<c:import url="../comum/navbar.jsp" />
+<c:import url="../comum/navbarErro.jsp" />
 <div align="center">
 <img src="view/img/logo.png" class="img-fluid" style="height:250px; width:380px; align: center;">
 

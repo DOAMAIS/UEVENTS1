@@ -23,6 +23,13 @@
 		        documento.value += texto.substring(0,1);
 		    }
 		}
+		function validar(dom,tipo){
+			switch(tipo){
+				case'num':var regex=/[A-Za-zçãàáâéêíóôõúÂÃÁÀÉÊÍÓÔÕÚÇ<\>\!?$%;,º°ª]/g;break;
+				case'text':var regex=/\d/g;break;
+			}
+			dom.value=dom.value.replace(regex,'');
+		}
 	</script>
 	<style type="text/css">
 		#card {
@@ -70,9 +77,9 @@
 	 	<input type="hidden" name="id" value="${atividade.id}"/>
 		<input type="text" class="form-control" value="${atividade.nome }" placeholder="Nome da Atividade" name="nome" minlength="5" required/><br/>
 		<input type="text" class="form-control" value="${atividade.orientador }" name="orientador" placeholder="Orientador da Atividade" minlength="5" required/><br/>
-		<input type="text" class="form-control" value="<fmt:formatDate value="${atividade.data}" pattern="dd/MM/yyyy"/>" name="data"  placeholder="11/07/2001 - data do evento" minlength="10" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required/><br/>
-		<input type="text" class="form-control" value="${atividade.horaInicio }" name="horaInicio" placeholder="13:00 - hora de inÃƒÂ­cio" minlength="5"  maxlength="5" OnKeyPress="formatar('##:##', this)" required/> &nbsp; &nbsp; &nbsp;
-		<input type="text" class="form-control" value="${atividade.horaTermino }" name="horaTermino" placeholder="13:00 - hora de tÃƒÂ©rmino" minlength="5"  maxlength="5" OnKeyPress="formatar('##:##', this)" required/><br/>
+		<input type="text" class="form-control" value="<fmt:formatDate value="${atividade.data}" pattern="dd/MM/yyyy"/>" name="data"  placeholder="11/07/2001 - data do evento" minlength="10" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onkeyup="validar(this,'num');" required/><br/>
+		<input type="text" class="form-control" value="${atividade.horaInicio }" name="horaInicio" placeholder="13:00 - hora de inÃƒÂ­cio" minlength="5"  maxlength="5" onkeyup="validar(this,'num');" OnKeyPress="formatar('##:##', this)" required/> &nbsp; &nbsp; &nbsp;
+		<input type="text" class="form-control" value="${atividade.horaTermino }" name="horaTermino" placeholder="13:00 - hora de tÃƒÂ©rmino" minlength="5"  maxlength="5" onkeyup="validar(this,'num');" OnKeyPress="formatar('##:##', this)" required/><br/>
 		<input type="text" class="form-control" value="${atividade.local }" name="local" placeholder="Local da Atividade" required/><br/>
 	  	<textarea class="form-control" name="descricao" id="descricao" placeholder="DescriÃƒÂ§ÃƒÂ£o da Atividade" maxlength="150" onkeydown="restantes(this.id);">${atividade.descricao}</textarea>
 	  	<i id="i"></i><br>

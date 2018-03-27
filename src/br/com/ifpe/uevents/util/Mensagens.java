@@ -11,6 +11,6 @@ public class Mensagens {
 	public static String AtvAlteradoSucesso= "A atividade foi alterada com sucesso";
 	public static String EvExcluidoSucesso= "O evento foi excluido com sucesso";
 	public static String EvAlteradoSucesso= "O evento foi alterado com sucesso";
-	public static String UsuarioAterado= "O usuário foi alterado com sucesso";
+	public static String UsuarioAterado= "Seus dados foram alterados com sucesso";
 	public static String ProfessorCadastrado= "Professor cadastrado com sucesso";
 }

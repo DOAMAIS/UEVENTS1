@@ -40,6 +40,14 @@
     	    }
     	}
       
+    function validar(dom,tipo){
+		switch(tipo){
+			case'num':var regex=/[A-Za-zçãàáâéêíóôõúÂÃÁÀÉÊÍÓÔÕÚÇ<\>\!?$%:;,º°ª]/g;break;
+			case'text':var regex=/\d/g;break;
+		}
+		dom.value=dom.value.replace(regex,'');
+	}
+      
   </script>
 
 </head>
@@ -65,7 +73,7 @@
 					</div>
 					
 					<div class="wrap-input100 validate-input m-b-35" data-validate = "Escreva seu CPF">
-						<input class="input100" type="text" id="cpf" name="cpf" OnKeyPress="formatar('###.###.###-##', this)" minlength="14" maxlength="14" required>
+						<input class="input100" type="text" id="cpf" name="cpf" OnKeyPress="formatar('###.###.###-##', this)" onkeyup="validar(this,'num');" minlength="14" maxlength="14" required>
 						<span class="focus-input100" data-placeholder="CPF"></span>
 					</div>
 

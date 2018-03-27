@@ -12,6 +12,14 @@
 	<title>Alterar Dados</title>
 	<c:import url="/view/linkcss.jsp" />
     <script type="text/javascript">
+	    function letras(){
+	  	  var tecla = event.keyCode;
+	  	  if (tecla >= 33 && tecla <= 64 || tecla >= 91 && tecla <= 93 || tecla >= 123 && tecla <= 159 || tecla >= 162 && tecla <= 191 ){ 
+	  	      return false;
+	  	  }else{
+	  	     return true;
+	  	  }
+	  	}
       function verificaSenha(){
     	var senha = document.getElementById("senha");
         var confSenha = document.getElementById("confSenha");
@@ -30,6 +38,13 @@
   	        documento.value += texto.substring(0,1);
   	    }
   	}
+   function validar(dom,tipo){
+		switch(tipo){
+			case'num':var regex=/[A-Za-zçãàáâéêíóôõúÂÃÁÀÉÊÍÓÔÕÚÇ<\>\!?$%:;,º°ª]/g;break;
+			case'text':var regex=/\d/g;break;
+		}
+		dom.value=dom.value.replace(regex,'');
+	}
     </script>
 </head>
 <body>
@@ -47,17 +62,17 @@
 						      <span><strong> Parabéns:</strong> ${msg} </span>
 						</div>
 					</c:if>
-					<div class="wrap-input100 validate-input m-b-35" data-validate = "Enter matriculation">
-						<input class="input100" type="text" name="nome" value="${usuarioLogado.nome }">
+					<div class="wrap-input100 validate-input m-b-35" data-validate = "Escreva seu nome">
+						<input class="input100" type="text" name="nome" value="${usuarioLogado.nome}" onkeypress="return letras();">
 						<span class="focus-input100" data-placeholder="Nome"></span>
 					</div>
 					<div><input class="input100" type="hidden" name="id" value="${usuarioLogado.id }"></div>
-					<div class="wrap-input100 validate-input m-b-35" data-validate = "Enter matriculation">
-						<input class="input100" type="text" name="cpf" value="${usuarioLogado.cpf }" minlength="14" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)">
+					<div class="wrap-input100 validate-input m-b-35" data-validate = "Escreva seu cpf">
+						<input class="input100" type="text" name="cpf" value="${usuarioLogado.cpf }" minlength="14" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)" onkeyup="validar(this, 'num');">
 						<span class="focus-input100" data-placeholder="CPF"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input m-b-35" data-validate = "Enter email">
+					<div class="wrap-input100 validate-input m-b-35" data-validate = "Escreva seu  email">
 						<input class="input100" type="text" name="email" value="${usuarioLogado.email}">
 						<span class="focus-input100" data-placeholder="E-mail"></span>
 					</div>

@@ -26,7 +26,7 @@ public class EventoController {
 	}
 	
 	@RequestMapping("inserirEvento")
-	public String cadastroEvento(Evento evento, @RequestParam("file") MultipartFile imagem){
+	public String cadastroEvento(Evento evento, @RequestParam("file") MultipartFile imagem, Model model){
 
 		if(Util.fazerUpload(imagem)){
 			evento.setFoto(Util.geraSalt() + "-" + imagem.getOriginalFilename());
@@ -35,6 +35,7 @@ public class EventoController {
 		EventoDao dao = new EventoDao();
 		dao.cadastrar(evento);
 
+		model.addAttribute("msg", "Evento Cadastrado Com Sucesso!");
 		return "telas/cadasEvento";
 	}
 
@@ -65,7 +66,8 @@ public class EventoController {
 		EventoDao dao = new EventoDao();
 		Evento eventoCompleto = dao.buscarPorId(evento.getId());
 		model.addAttribute("evento", eventoCompleto);
-	
+		model.addAttribute("msg", Mensagens.EvAlteradoSucesso);
+		
 		return "telas/alterarEvento";
     }
 

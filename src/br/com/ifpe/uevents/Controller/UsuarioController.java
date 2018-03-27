@@ -109,7 +109,11 @@ public class UsuarioController {
 			model.addAttribute("atvEscolhida", atvEscolhida);
 			Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
 			UsuarioDao dao = new UsuarioDao();
-			dao.participarAtividade(usuarioLogado, atividade);
+			try{
+				dao.participarAtividade(usuarioLogado, atividade);
+			}catch (RuntimeException e) {
+				System.out.println(e.getMessage());
+			}
 			model.addAttribute("msg", Mensagens.ParticipacaoConfirmada);
 	
 			return "forward:paginaInicial";

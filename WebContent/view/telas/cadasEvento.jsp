@@ -20,6 +20,13 @@
 		        documento.value += texto.substring(0,1);
 		    }
 		}
+	function validar(dom,tipo){
+		switch(tipo){
+			case'num':var regex=/[A-Za-zçãàáâéêíóôõúÂÃÁÀÉÊÍÓÔÕÚÇ<\>\!?$%:;,º°ª]/g;break;
+			case'text':var regex=/\d/g;break;
+		}
+		dom.value=dom.value.replace(regex,'');
+    }
 	</script>
 	<style type="text/css">
 		#card {
@@ -54,13 +61,19 @@
 <c:import url="../comum/navbarAdm.jsp" />
  <div class="container">
   <div class="widget">
+ 	<c:if test="${msg != null}">
+		<div class="alert alert-success">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+			<span><strong> Parabéns:</strong> ${msg} </span>
+		</div>
+	</c:if>
 	<form action="inserirEvento" method="post" enctype="multipart/form-data">
 	  <h2>Novo Evento</h2>
 	  <input type="hidden" name="status" value="ativo"/>
 		<input type="text" class="form-control" placeholder="Nome do Evento" name="nome" minlength="5" required/><br/>
 		<input type="file" class="form-control" name="file" accept=".jpeg,.png,.jpg"/><br/>
-		<input type="text" class="form-control" name="dataInicio" placeholder="11/07/2001 - data de início" minlength="10" maxlength="10" OnKeyPress="formatar('##/##/####', this)"required/><br/>
-		<input type="text" class="form-control" name="dataTermino" placeholder="11/07/2001 - data de término" minlength="10" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required/><br/>
+		<input type="text" class="form-control" name="dataInicio" placeholder="11/07/2001 - data de início" minlength="10" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onkeyup="validar(this,'num');" required/><br/>
+		<input type="text" class="form-control" name="dataTermino" placeholder="11/07/2001 - data de término" minlength="10" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onkeyup="validar(this,'num');" required/><br/>
 	  	<textarea class="form-control" name="descricao" id="descricao"placeholder="Descrição do Evento" maxlength="150" onkeydown="restantes(this.id);"></textarea>
 	  	<label align="left" id="i"></label><br>
 	  	<button class="btn btn-success">Novo Evento</button>

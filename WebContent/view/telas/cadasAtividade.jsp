@@ -23,6 +23,14 @@
 		        documento.value += texto.substring(0,1);
 		    }
 		}
+		
+	function validar(dom,tipo){
+		switch(tipo){
+			case'num':var regex=/[A-Za-zçãàáâéêíóôõúÂÃÁÀÉÊÍÓÔÕÚÇ<\>\!?$%;,º°ª]/g;break;
+			case'text':var regex=/\d/g;break;
+		}
+		dom.value=dom.value.replace(regex,'');
+	}
 	</script>
 	<style type="text/css">
 		#card {
@@ -57,6 +65,12 @@
 <body>
 <c:import url="../comum/navbarAdm.jsp" />
 	<div class="widget">
+	<c:if test="${msg != null}">
+		<div class="alert alert-success">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+			<span><strong> Parabéns:</strong> ${msg} </span>
+		</div>
+	</c:if>
 	<form action="inserirAtividade" method="post" enctype="multipart/form-data">
 	  <h2>Nova Atividade</h2>
 	 	<select class="form-control" name="id_evento">
@@ -70,9 +84,9 @@
 	 	<input type="hidden" name="id_orientador" value="${usuarioLogado.id}"/>
 		<input type="text" class="form-control" placeholder="Nome da Atividade" name="nome" minlength="5" required/><br/>
 		<input type="text" class="form-control" name="orientador" placeholder="Orientador da Atividade" minlength="5" required/><br/>
-		<input type="text" class="form-control" name="data"  placeholder="11/07/2001 - data da atividade" minlength="10" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required/><br/>
-		<input type="text" class="form-control" name="horaInicio" placeholder="13:00 - hora de inÃ­cio"  minlength="5"  maxlength="5" OnKeyPress="formatar('##:##', this)" required/> &nbsp; &nbsp; &nbsp;
-		<input type="text" class="form-control" name="horaTermino" placeholder="13:00 - hora de termino" minlength="5"  maxlength="5"  OnKeyPress="formatar('##:##', this)" required/><br/>
+		<input type="text" class="form-control" name="data"  placeholder="11/07/2001 - data da atividade" minlength="10" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onkeyup="validar(this,'num');" required/><br/>
+		<input type="text" class="form-control" name="horaInicio" placeholder="13:00 - hora de inÃ­cio"  minlength="5"  maxlength="5" OnKeyPress="formatar('##:##', this)" onkeyup="validar(this,'num');" required/> &nbsp; &nbsp; &nbsp;
+		<input type="text" class="form-control" name="horaTermino" placeholder="13:00 - hora de termino" minlength="5"  maxlength="5"  OnKeyPress="formatar('##:##', this)" onkeyup="validar(this,'num');" required/><br/>
 		<input type="text" class="form-control" name="local" placeholder="Local da Atividade" required/><br/>
 	  	<textarea class="form-control" name="descricao" id="descricao"placeholder="DescriÃ§Ã£o da Atividade" maxlength="150" onkeydown="restantes(this.id);"></textarea>
 	  	<i id="i"></i><br>

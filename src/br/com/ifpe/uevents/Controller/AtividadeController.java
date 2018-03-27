@@ -26,11 +26,12 @@ public class AtividadeController {
 		return "telas/cadasAtividade";
 	}
 	@RequestMapping("inserirAtividade")
-	public String cadastroEvento(Atividade atv){
+	public String cadastroEvento(Atividade atv, Model model){
 
 		AtividadeDao dao = new AtividadeDao();
 		dao.cadastrar(atv);
 		
+		model.addAttribute("msg", "Atividade Cadastrada Com Sucesso!");
 		return "forward:cadasAtividade";
 	}
 
