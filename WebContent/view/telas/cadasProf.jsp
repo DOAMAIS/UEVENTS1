@@ -49,7 +49,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-40 p-b-20">
-				<form class="login100-form validate-form" action="inserirUsuario" method="post" onsubmit="return verificaSenha();">
+				<form class="login100-form validate-form" action="inserirProf" method="post" onsubmit="return verificaSenha();">
 					<span class="login100-form-title p-b-20">
 						UEVENTS
 					</span>
