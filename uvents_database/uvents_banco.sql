@@ -114,7 +114,7 @@ INSERT INTO tipo_usuario (id, descricao) values(2, "aluno");
 INSERT INTO tipo_usuario (id, descricao) values(3, "professor");
 
 -- Usuário ADM -- A senha é 123 ---
-INSERT INTO `usuario` VALUES (1, 000.000.000-00, 'adm@gmail.com', 'Administrador', 'A665A45920422F9D417E4867EFDC4FB8A04A1F3FFF1FA07E998E86F7F7A27AE3', 3);
+INSERT INTO `usuario` VALUES (1, '000.000.000-00', 'adm@gmail.com', 'Administrador', 'A665A45920422F9D417E4867EFDC4FB8A04A1F3FFF1FA07E998E86F7F7A27AE3', 3);
 
 INSERT INTO `evento` VALUES (1,null,"Missa Dominical",'2018-12-11','2018-12-11','Deus te abençoe','ativo'),
                             (2,NULL,'Semana de Tecnologia','2018-09-11','2018-09-18','Várias palestras','ativo');
