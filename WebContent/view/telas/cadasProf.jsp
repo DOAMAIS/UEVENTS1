@@ -45,7 +45,7 @@
 </head>
 <body>
 
-<c:import url="../comum/navbar.jsp" />
+<c:import url="../comum/navbarAdm.jsp" />
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-40 p-b-20">
