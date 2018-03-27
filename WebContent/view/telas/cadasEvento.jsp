@@ -12,6 +12,14 @@
 			b =a.value.length;
 			document.getElementById("i").innerHTML = "Restam "+(150-b)+" caracteres";
 		}
+		function formatar(mascara, documento){
+		    var i = documento.value.length;
+		    var saida = mascara.substring(0,1);
+		    var texto = mascara.substring(i)
+		    if (texto.substring(0,1) != saida){
+		        documento.value += texto.substring(0,1);
+		    }
+		}
 	</script>
 	<style type="text/css">
 		#card {
@@ -51,9 +59,9 @@
 	  <input type="hidden" name="status" value="ativo"/>
 		<input type="text" class="form-control" placeholder="Nome do Evento" name="nome" minlength="5" required/><br/>
 		<input type="file" class="form-control" name="file" accept=".jpeg,.png,.jpg"/><br/>
-		<input type="text" class="form-control" name="dataInicio" placeholder="11/07/2001 - data de início" minlength="5" required/><br/>
-		<input type="text" class="form-control" name="dataTermino" placeholder="11/07/2001 - data de término" minlength="5" required/><br/>
-	  	<textarea class="form-control" name="descricao" id="descricao"placeholder="Descrição da Atividade" maxlength="150" onkeydown="restantes(this.id);"></textarea>
+		<input type="text" class="form-control" name="dataInicio" placeholder="11/07/2001 - data de início" minlength="10" maxlength="10" OnKeyPress="formatar('##/##/####', this)"required/><br/>
+		<input type="text" class="form-control" name="dataTermino" placeholder="11/07/2001 - data de término" minlength="10" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required/><br/>
+	  	<textarea class="form-control" name="descricao" id="descricao"placeholder="Descrição do Evento" maxlength="150" onkeydown="restantes(this.id);"></textarea>
 	  	<label align="left" id="i"></label><br>
 	  	<button class="btn btn-success">Novo Evento</button>
 
