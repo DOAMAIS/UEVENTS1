@@ -22,6 +22,14 @@
            return false;
           }
         }
+      function formatar(mascara, documento){
+  	    var i = documento.value.length;
+  	    var saida = mascara.substring(0,1);
+  	    var texto = mascara.substring(i)
+  	    if (texto.substring(0,1) != saida){
+  	        documento.value += texto.substring(0,1);
+  	    }
+  	}
     </script>
 </head>
 <body>
@@ -36,7 +44,7 @@
 					<c:if test="${msg != null }">
 						<div class="alert alert-success">
 						      <button type="button" class="close" aria-hidden="true">Ã—</button>
-						      <span><strong> ParabÃ©ns:</strong> ${msg} </span>
+						      <span><strong> Parabéns:</strong> ${msg} </span>
 						</div>
 					</c:if>
 					<div class="wrap-input100 validate-input m-b-35" data-validate = "Enter matriculation">
@@ -45,7 +53,7 @@
 					</div>
 					<div><input class="input100" type="hidden" name="id" value="${usuarioLogado.id }"></div>
 					<div class="wrap-input100 validate-input m-b-35" data-validate = "Enter matriculation">
-						<input class="input100" type="text" name="cpf" value="${usuarioLogado.cpf }">
+						<input class="input100" type="text" name="cpf" value="${usuarioLogado.cpf }" minlength="14" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)">
 						<span class="focus-input100" data-placeholder="CPF"></span>
 					</div>
 
