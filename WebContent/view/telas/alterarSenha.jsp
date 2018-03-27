@@ -42,11 +42,11 @@
 					</c:if>
 					<input type="hidden" name="id" value="${usuarioLogado.id}">
 					<div class="wrap-input100 validate-input m-b-30" data-validate="Escreva sua senha">
-						<input class="input100" type="password" name="senha" id="senha">
+						<input class="input100" type="password" name="senha" id="senha" minlength="5">
 						<span class="focus-input100" data-placeholder="Senha"></span>
 					</div>
 					<div class="wrap-input100 validate-input m-b-30" data-validate="Escreva novamento sua senha">
-						<input class="input100" type="password" id="confSenha" name="confSenha">
+						<input class="input100" type="password" id="confSenha" name="confSenha" minlength="5">
 						<span class="focus-input100" data-placeholder="Confimar de senha"></span>
 					</div>
 					<input class="input100" type="hidden" name="idTipoUsuario" value="${usuarioLogado.idTipoUsuario}">
